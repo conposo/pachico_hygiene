@@ -1,0 +1,50 @@
+@import "common/variables";
+
+/** Import everything from autoload */
+@import "./autoload/**/*";
+
+/**
+ * Import npm dependencies
+ *
+ * Prefix your imports with `~` to grab from node_modules/
+ * @see https://github.com/webpack-contrib/sass-loader#imports
+ */
+// @import "~some-node-module";
+
+/** Import theme styles */
+@import "keyframes";
+
+@import "common/global";
+@import "components/buttons";
+@import "components/comments";
+@import "components/forms";
+@import "components/wp-classes";
+@import "layouts/header";
+@import "layouts/sidebar";
+@import "layouts/footer";
+@import "layouts/pages";
+@import "layouts/posts";
+@import "layouts/tinymce";
+
+@import "pages/home";
+
+body {
+//   color: blue;
+}
+
+
+@include media-breakpoint-up(xs) {
+    // 
+}
+@include media-breakpoint-up(sm) {
+    // 
+}
+@include media-breakpoint-up(md) {
+    // 
+}
+@include media-breakpoint-up(lg) {
+    // 
+}
+@include media-breakpoint-up(xl) {
+    // 
+}

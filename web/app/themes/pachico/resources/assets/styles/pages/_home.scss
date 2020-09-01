@@ -1,0 +1,206 @@
+.banner {
+    &.home {
+        top: 0;
+        z-index: 2;
+
+        background-color: $primary;
+        background-color: #006fb5;
+
+        transition: opacity 0.3s ease;
+        &.top {
+            opacity: 0;
+        }
+    }
+}
+
+// HERO START
+.hero {
+    height: 100vh;
+    background-color: lightgray;
+
+    > div {
+        height: 100vh;
+    }
+
+    h1 {
+        font-size: 32px;
+        font-weight: 600;
+        text-shadow: 2px 2px 10px rgba(0, 0, 0, .2);
+        color: white;
+
+        @include media-breakpoint-up(md) {
+            font-size: 72px;
+        }
+
+        span.type-it span + span {
+            margin-left: -5px;
+        }
+    }
+
+    .home-down {
+        display: inline-block;
+        
+        left: 0;
+        top: 50%;
+        
+        padding-top: 40px;
+        padding-left: 40px;
+        
+        color: #fff;
+        
+        font-size: 40px;
+        
+        transition: all 0.3s ease;
+
+        &.active {
+            // color: #afafaf;
+        }
+
+        &.bounce {
+            -webkit-animation-name: bounce;
+            animation-name: bounce;
+            
+            -webkit-border-radius: 50%;
+            -moz-border-radius: 50%;
+            -ms-border-radius: 50%;
+            border-radius: 50%;
+            animation: bounce 2s infinite;
+            -webkit-animation: bounce 2s infinite;
+            -moz-animation: bounce 2s infinite;
+            -o-animation: bounce 2s infinite;
+        }
+    }
+
+    .carousel-images {
+        .slick-slide {
+            height: 100vh;
+        }
+        .slick-list {
+            height: 100vh;
+        }
+    }
+
+    .diagonal {
+        position: absolute;
+        pointer-events: none;
+        background: #fff;
+        z-index: 1;
+
+        @include media-breakpoint-down(sm) {
+            height: 70px;
+        }
+
+        &.home-left, &.home-right path {
+            fill: #f5f5f5;
+            stroke: #f5f5f5;
+            fill: #fff;
+            stroke: #fff;
+            stroke-width: 4;
+        }
+
+        &.home-left {
+            bottom: 0;
+            left: 0;
+            background: none;
+        }
+
+        &.home-right {
+            bottom: 0;
+            right: 0 !important;
+            background: none;
+            left: auto;
+        }
+    }
+
+} // HERO END
+
+// ABOUT START
+.about {
+    figure {
+        background: #e8e8e8;
+
+        @include media-breakpoint-up(md) {
+            width: 40%;
+            padding-bottom: 50px;
+            padding-left: 20px;
+            + div {
+                padding-left: 90px;
+                width: 60%;
+            }
+        }
+
+        img {
+            @include media-breakpoint-down(md) {
+                box-shadow: 0 1rem 3rem rgba(0, 0, 0, 0.175) !important;
+            }
+            @include media-breakpoint-up(md) {
+                margin-top: -30px;
+                right: -30px;    
+            }
+        }
+    }
+
+    div {
+        .title {
+            font-weight: bold;
+            font-size: 32px;
+            // border-bottom: 5px solid;
+        }
+    }
+} // ABOUT END
+
+
+
+// PRODUCTS START
+.products {
+
+    .grid-item {
+        width: 33.3%;
+        /* min-height: 250px; */
+        > div {
+            overflow: hidden;
+        }
+    }
+    /* .grid-item--width2 {
+        width: 50%;
+    } */
+
+    img {
+        
+        + .blurred {
+            top: 0;
+            left: 0;
+
+            background-color: #fff;
+
+            opacity: 0;
+
+            transition: opacity 0.3s ease;
+            &:hover {
+                opacity: 1;
+            }
+
+            img {
+                filter: blur(8px);
+                -webkit-filter: blur(8px);
+                opacity: 0.7;
+            }
+
+            span.product_title {
+                top: 45%;
+                left: 0;
+                height: 0;
+                span {
+                    font-size: 14px;
+                    font-weight: 700;
+                    color: $primary;
+                    text-shadow: 0 0 25px #fff;
+                    + span {
+                        font-size: 20px;
+                        font-weight: 500;
+                    }
+                }
+            }
+        }
+    }
+} // PRODUCTS   END
