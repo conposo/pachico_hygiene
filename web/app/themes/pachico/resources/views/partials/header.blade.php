@@ -1,4 +1,4 @@
-<header class="banner {{ is_front_page() ? 'home top' : '' }} position-fixed w-100 py-3 shadow-lg">
+<header class="banner {{ is_front_page() ? 'home top position-fixed' : '' }} w-100 py-3 shadow-lg">
   <div class="container d-flex justify-content-between">
     <a class="brand position-relative" href="{{ home_url('/') }}">
       <!-- {{ get_bloginfo('name', 'display') }} -->
