@@ -1,0 +1,8 @@
+/* 4. add @mixin or @extend customizations here */
+/* create new custom classes from existing classes */
+.row-dark {
+    @extend .row;
+    background-color: #333333;
+    color: #ffffff;
+}
+
