@@ -25,7 +25,7 @@
 
           @if($question['visible'] == 'yes')
           <div class="mb-3 border-bottom">
-            <h3 class="d-flex align-items-center" data-toggle="collapse" href="#collapse{{$i}}" role="button" aria-expanded="false" aria-controls="collapse{{$i}}">
+            <h3 class="d-flex justify-content-between align-items-center cursor-pointer" data-toggle="collapse" href="#collapse{{$i}}" role="button" aria-expanded="false" aria-controls="collapse{{$i}}">
               {!!$question['question']!!}
               <i class="fas fa-angle-down"></i>
             </h3>

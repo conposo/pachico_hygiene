@@ -89,3 +89,30 @@ add_filter('comments_template', function ($comments_template) {
 
     return $comments_template;
 }, 100);
+
+/**
+ * WooCommerce
+ */
+
+add_filter('woocommerce_breadcrumb_defaults', function( $defaults ) {
+    unset($defaults['home']); //removes home link.
+    return $defaults; //returns rest of links
+});
+
+// Remove breadcrumbs from shop & categories
+add_filter( 'woocommerce_before_main_content', function() {
+    remove_action( 'woocommerce_before_main_content','woocommerce_breadcrumb', 20, 0);
+	if(!is_product()) {
+	}
+});
+
+// Remove Product Thumbnails
+remove_action( 'woocommerce_product_thumbnails', 'woocommerce_show_product_thumbnails', 20 );
+
+// Remove Product Image Link
+add_filter( 'woocommerce_single_product_image_thumbnail_html', function( $html, $post_id ) {
+    return preg_replace( "!<(a|/a).*?>!", '', $html );
+}, 10, 2 );
+
+// Remove product meta
+remove_action( 'woocommerce_single_product_summary', 'woocommerce_template_single_meta', 40 );

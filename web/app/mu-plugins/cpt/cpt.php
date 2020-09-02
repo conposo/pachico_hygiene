@@ -27,40 +27,40 @@
 
 function cmpso_custom_post_types() {
 
-    $labels = array(
-        'name'               => 'Faq',
-        'singular_name'      => 'Faq',
-        'menu_name'          => 'Faq',
-        'name_admin_bar'     => 'Faq',
-        'add_new'            => 'Add New',
-        'add_new_item'       => 'Add New Faq',
-        'new_item'           => 'New Faq',
-        'edit_item'          => 'Edit Faq',
-        'view_item'          => 'View Faq',
-        'all_items'          => 'All Faqs',
-        'search_items'       => 'Search Faqs',
-        'parent_item_colon'  => 'Parent Faqs:',
-        'not_found'          => 'No Faqs found.',
-        'not_found_in_trash' => 'No Faqs found in Trash.',
-    );
-    $faqs_args = array(
-        'labels'             => $labels,
-        'public'             => true,
-        'publicly_queryable' => true,
-        'show_in_rest'       => true,
-        'show_ui'            => true,
-        'show_in_menu'       => true,
-        'menu_icon'          => 'dashicons-list-view',
-        'query_var'          => true,
-        'rewrite'            => array( 'slug' => 'authors' ),
-        'capability_type'    => 'post',
-        'has_archive'        => true,
-        'hierarchical'       => false,
-        'menu_position'      => 16,
-        'map_meta_cap'       => true,
-        'supports'           => array( 'title', 'editor', 'thumbnail', 'excerpt' )
-    );
-	register_post_type( 'faq', $faqs_args );
+    // $labels = array(
+    //     'name'               => 'Faq',
+    //     'singular_name'      => 'Faq',
+    //     'menu_name'          => 'Faq',
+    //     'name_admin_bar'     => 'Faq',
+    //     'add_new'            => 'Add New',
+    //     'add_new_item'       => 'Add New Faq',
+    //     'new_item'           => 'New Faq',
+    //     'edit_item'          => 'Edit Faq',
+    //     'view_item'          => 'View Faq',
+    //     'all_items'          => 'All Faqs',
+    //     'search_items'       => 'Search Faqs',
+    //     'parent_item_colon'  => 'Parent Faqs:',
+    //     'not_found'          => 'No Faqs found.',
+    //     'not_found_in_trash' => 'No Faqs found in Trash.',
+    // );
+    // $faqs_args = array(
+    //     'labels'             => $labels,
+    //     'public'             => true,
+    //     'publicly_queryable' => true,
+    //     'show_in_rest'       => true,
+    //     'show_ui'            => true,
+    //     'show_in_menu'       => true,
+    //     'menu_icon'          => 'dashicons-list-view',
+    //     'query_var'          => true,
+    //     'rewrite'            => array( 'slug' => 'authors' ),
+    //     'capability_type'    => 'post',
+    //     'has_archive'        => true,
+    //     'hierarchical'       => false,
+    //     'menu_position'      => 16,
+    //     'map_meta_cap'       => true,
+    //     'supports'           => array( 'title', 'editor', 'thumbnail', 'excerpt' )
+    // );
+	// register_post_type( 'faq', $faqs_args );
 
     $labels = array(
         'name'               => 'Team members',
@@ -130,7 +130,7 @@ function cmpso_custom_post_types() {
         'map_meta_cap'       => true,
         'supports'           => array( 'title', 'editor', 'thumbnail', 'excerpt' )
     );
-	register_post_type( 'team_members', $jobs_args );
+	register_post_type( 'jobs', $jobs_args );
 
     $labels = array(
         'name'               => 'Certificates',

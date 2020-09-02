@@ -16,13 +16,14 @@
   background-color: #006fb5;
 
   a {
-    color: #fff;
+    color: #fff !important;
 
     font-weight: 600;
     text-transform: uppercase;
     text-shadow: 2px 2px 10px rgba(0, 0, 0, .2);
 
     &.brand {
+      z-index: 1;
       width: $side_are_width;
       img {
 

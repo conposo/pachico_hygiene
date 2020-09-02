@@ -1,11 +1,17 @@
-<article @php post_class() @endphp>
+<article @php post_class('mb-3 pt-3 border-top') @endphp>
   <header>
-    <h2 class="entry-title"><a href="{{ get_permalink() }}">{!! get_the_title() !!}</a></h2>
-    @if (get_post_type() === 'post')
-      @include('partials/entry-meta')
-    @endif
+    <h2 class="entry-title">{!! get_the_title() !!}</h2>
+    <!-- @ if (get_post_type() === 'post') -->
+      <!-- @ include('partials/entry-meta') -->
+    <!-- @ endif -->
   </header>
   <div class="entry-summary">
     @php the_excerpt() @endphp
+  </div>
+  <div class="see-more">
+    <a class="text-uppercase btn btn-outline-primary btn-sm" href="{{ get_permalink() }}">
+      read more
+      <i class="fa fa-chevron-right"></i>
+    </a>
   </div>
 </article>
