@@ -116,3 +116,20 @@ add_filter( 'woocommerce_single_product_image_thumbnail_html', function( $html, 
 
 // Remove product meta
 remove_action( 'woocommerce_single_product_summary', 'woocommerce_template_single_meta', 40 );
+
+// Remove existing tabs from single product pages
+add_filter( 'woocommerce_product_tabs', function ( $tabs ) {
+	unset( $tabs['description'] );
+	unset( $tabs['reviews'] );
+	unset( $tabs['additional_information'] );
+return [];
+}, 98 );
+
+// disable the default stylesheet
+add_filter( 'woocommerce_enqueue_styles', '__return_empty_array' );
+
+/*
+ * Remove excerpt from single product
+ */
+// remove_action( 'woocommerce_single_product_summary', 'woocommerce_template_single_excerpt', 20 );
+// add_action( 'woocommerce_single_product_summary', 'the_content', 20 );
