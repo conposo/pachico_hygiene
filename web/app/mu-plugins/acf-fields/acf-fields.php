@@ -27,7 +27,7 @@
 
 function cmpso_acf_fields() {
     
-    if( function_exists('acf_add_local_field_group') ):
+    if( function_exists('acf_add_local_field_group') ): // START Home page
 
         acf_add_local_field_group(array(
             'key' => 'group_5f4d00f563ca2',
@@ -324,7 +324,7 @@ function cmpso_acf_fields() {
                                                     'key' => 'field_5f4e2b15efa90',
                                                     'label' => 'Product',
                                                     'name' => 'product',
-                                                    'type' => 'text',
+                                                    'type' => 'post_object',
                                                     'instructions' => '',
                                                     'required' => 0,
                                                     'conditional_logic' => 0,
@@ -333,30 +333,14 @@ function cmpso_acf_fields() {
                                                         'class' => '',
                                                         'id' => '',
                                                     ),
-                                                    'default_value' => '',
-                                                    'placeholder' => '',
-                                                    'prepend' => '',
-                                                    'append' => '',
-                                                    'maxlength' => '',
-                                                ),
-                                                array(
-                                                    'key' => 'field_5f4e2b23efa91',
-                                                    'label' => 'Product image',
-                                                    'name' => 'product_image',
-                                                    'type' => 'text',
-                                                    'instructions' => '',
-                                                    'required' => 0,
-                                                    'conditional_logic' => 0,
-                                                    'wrapper' => array(
-                                                        'width' => '',
-                                                        'class' => '',
-                                                        'id' => '',
+                                                    'post_type' => array(
+                                                        0 => 'product',
                                                     ),
-                                                    'default_value' => '',
-                                                    'placeholder' => '',
-                                                    'prepend' => '',
-                                                    'append' => '',
-                                                    'maxlength' => '',
+                                                    'taxonomy' => '',
+                                                    'allow_null' => 0,
+                                                    'multiple' => 0,
+                                                    'return_format' => 'id',
+                                                    'ui' => 1,
                                                 ),
                                             ),
                                         ),
@@ -428,6 +412,10 @@ function cmpso_acf_fields() {
             'active' => true,
             'description' => '',
         ));
+        
+        endif; // END Home page
+
+    if( function_exists('acf_add_local_field_group') ):
         
         acf_add_local_field_group(array(
             'key' => 'group_5f149f4d2e476',
