@@ -16,7 +16,7 @@
           'wrap_before' => '<span class="mx-1 small text-black-50"><i class="fa fa-chevron-right"></i></span>',
           'wrap_after' => '',
           ]) }}
-      @else
+      @elseif( ! is_front_page() )
         <span class="small text-black-50"><i class="fa fa-chevron-right"></i></span>
         <a href="#" class="small text-black-50 text-uppercase" title="You are here. Go to top">{{ get_the_title( is_shop() ? wc_get_page_id('shop') : get_the_ID() ) }}</a>
       @endif

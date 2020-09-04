@@ -17,18 +17,24 @@
 
     <div class="grid products d-flex">
         @foreach($product_groups as $group)
-            @foreach($group['items'] as $item) 
+            @foreach($group['items'] as $item)
+            @php
+            $product_image_id = $item['product'];
+            //dd($product_image_id);
+            @endphp
             <div class="grid-item {{ str_replace(' ', '', $group['label']) }} p-3">
-                <div class="position-relative">
-                    <img src="{{ $item['product_image'] }}" alt="" class="w-100">
-                    <div class="blurred position-absolute">
-                        <img src="{{ $item['product_image'] }}" alt="" class="w-100">
-                        <span class="product_title position-absolute w-100 text-center">
-                            <span class="d-block text-uppercase small">{{ $group['label'] }}</span>
-                            <span class="text-dark">{{ $item['product'] }}</span>
-                        </span>
+                <a href="{!! get_permalink($product_image_id) !!}" class="position-relative d-block">
+                    <div class="position-relative">
+                        {!! get_the_post_thumbnail($product_image_id, 'thumbnail', ['class' => 'w-100 h-auto']) !!}
+                        <div class="blurred position-absolute">
+                            {!! get_the_post_thumbnail($product_image_id, 'thumbnail', ['class' => 'w-100 h-auto']) !!}
+                            <span class="product_title position-absolute w-100 text-center">
+                                <span class="d-block text-uppercase small">{{ $group['label'] }}</span>
+                                <span class="text-dark">{!! get_the_title($product_image_id) !!}</span>
+                            </span>
+                        </div>
                     </div>
-                </div>
+                </a>
             </div>
             @endforeach
         @endforeach
