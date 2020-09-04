@@ -231,6 +231,46 @@ function cmpso_acf_fields() {
                             'media_upload' => 0,
                             'delay' => 0,
                         ),
+                        array(
+                            'key' => 'field_5f5243568adeb',
+                            'label' => 'CTA',
+                            'name' => 'cta',
+                            'type' => 'page_link',
+                            'instructions' => '',
+                            'required' => 0,
+                            'conditional_logic' => 0,
+                            'wrapper' => array(
+                                'width' => '',
+                                'class' => '',
+                                'id' => '',
+                            ),
+                            'post_type' => array(
+                                0 => 'page',
+                            ),
+                            'taxonomy' => '',
+                            'allow_null' => 0,
+                            'allow_archives' => 0,
+                            'multiple' => 0,
+                        ),
+                        array(
+                            'key' => 'field_5f5243b56c362',
+                            'label' => 'CTA Label',
+                            'name' => 'cta_label',
+                            'type' => 'text',
+                            'instructions' => '',
+                            'required' => 0,
+                            'conditional_logic' => 0,
+                            'wrapper' => array(
+                                'width' => '',
+                                'class' => '',
+                                'id' => '',
+                            ),
+                            'default_value' => '',
+                            'placeholder' => '',
+                            'prepend' => '',
+                            'append' => '',
+                            'maxlength' => '',
+                        ),
                     ),
                 ),
                 array(
@@ -413,9 +453,11 @@ function cmpso_acf_fields() {
             'description' => '',
         ));
         
-        endif; // END Home page
+    endif; // END Home page
 
-    if( function_exists('acf_add_local_field_group') ):
+
+
+    if( function_exists('acf_add_local_field_group') ): // START Questions
         
         acf_add_local_field_group(array(
             'key' => 'group_5f149f4d2e476',
@@ -607,9 +649,10 @@ function cmpso_acf_fields() {
             'description' => '',
         ));
         
-    endif;
+    endif; // END Question
 
-    if( function_exists('acf_add_local_field_group') ):
+
+    if( function_exists('acf_add_local_field_group') ):  // START Product
 
         acf_add_local_field_group(array(
             'key' => 'group_5f50bae11ab14',
@@ -697,13 +740,13 @@ function cmpso_acf_fields() {
                     'min' => 0,
                     'max' => 0,
                     'layout' => 'table',
-                    'button_label' => '',
+                    'button_label' => 'Add File',
                     'sub_fields' => array(
                         array(
                             'key' => 'field_5f50c46e3febc',
                             'label' => 'File',
                             'name' => 'file',
-                            'type' => 'link',
+                            'type' => 'file',
                             'instructions' => '',
                             'required' => 0,
                             'conditional_logic' => 0,
@@ -712,7 +755,11 @@ function cmpso_acf_fields() {
                                 'class' => '',
                                 'id' => '',
                             ),
-                            'return_format' => 'url',
+                            'return_format' => 'array',
+                            'library' => 'all',
+                            'min_size' => '',
+                            'max_size' => '',
+                            'mime_types' => 'pdf',
                         ),
                     ),
                 ),
@@ -914,7 +961,399 @@ function cmpso_acf_fields() {
             'description' => '',
         ));
         
-    endif;
+    endif; // END Product
+
+
+    if( function_exists('acf_add_local_field_group') ):  // START About Us
+
+        acf_add_local_field_group(array(
+            'key' => 'group_5f4f548c2f3b4',
+            'title' => 'About Us',
+            'fields' => array(
+                array(
+                    'key' => 'field_5f4f59591b437',
+                    'label' => 'Timeline',
+                    'name' => 'timeline',
+                    'type' => 'group',
+                    'instructions' => '',
+                    'required' => 0,
+                    'conditional_logic' => 0,
+                    'wrapper' => array(
+                        'width' => '',
+                        'class' => '',
+                        'id' => '',
+                    ),
+                    'layout' => 'block',
+                    'sub_fields' => array(
+                        array(
+                            'key' => 'field_5f4f597c1b438',
+                            'label' => 'Section header',
+                            'name' => 'section_header',
+                            'type' => 'text',
+                            'instructions' => '',
+                            'required' => 0,
+                            'conditional_logic' => 0,
+                            'wrapper' => array(
+                                'width' => '',
+                                'class' => '',
+                                'id' => '',
+                            ),
+                            'default_value' => '',
+                            'placeholder' => '',
+                            'prepend' => '',
+                            'append' => '',
+                            'maxlength' => '',
+                        ),
+                        array(
+                            'key' => 'field_5f4f593b1b436',
+                            'label' => 'Section introduction',
+                            'name' => 'section_introduction',
+                            'type' => 'text',
+                            'instructions' => '',
+                            'required' => 0,
+                            'conditional_logic' => 0,
+                            'wrapper' => array(
+                                'width' => '',
+                                'class' => '',
+                                'id' => '',
+                            ),
+                            'default_value' => '',
+                            'placeholder' => '',
+                            'prepend' => '',
+                            'append' => '',
+                            'maxlength' => '',
+                        ),
+                        array(
+                            'key' => 'field_5f4f549b46df6',
+                            'label' => 'Timeline',
+                            'name' => 'timeline',
+                            'type' => 'repeater',
+                            'instructions' => '',
+                            'required' => 1,
+                            'conditional_logic' => 0,
+                            'wrapper' => array(
+                                'width' => '',
+                                'class' => '',
+                                'id' => '',
+                            ),
+                            'collapsed' => '',
+                            'min' => 0,
+                            'max' => 0,
+                            'layout' => 'table',
+                            'button_label' => '',
+                            'sub_fields' => array(
+                                array(
+                                    'key' => 'field_5f4f54bb46df7',
+                                    'label' => 'Year / Date',
+                                    'name' => 'year__date',
+                                    'type' => 'text',
+                                    'instructions' => '',
+                                    'required' => 0,
+                                    'conditional_logic' => 0,
+                                    'wrapper' => array(
+                                        'width' => '',
+                                        'class' => '',
+                                        'id' => '',
+                                    ),
+                                    'default_value' => '',
+                                    'placeholder' => '',
+                                    'prepend' => '',
+                                    'append' => '',
+                                    'maxlength' => '',
+                                ),
+                                array(
+                                    'key' => 'field_5f4f54d946df8',
+                                    'label' => 'Text',
+                                    'name' => 'text',
+                                    'type' => 'text',
+                                    'instructions' => '',
+                                    'required' => 0,
+                                    'conditional_logic' => 0,
+                                    'wrapper' => array(
+                                        'width' => '',
+                                        'class' => '',
+                                        'id' => '',
+                                    ),
+                                    'default_value' => '',
+                                    'placeholder' => '',
+                                    'prepend' => '',
+                                    'append' => '',
+                                    'maxlength' => '',
+                                ),
+                            ),
+                        ),
+                    ),
+                ),
+                array(
+                    'key' => 'field_5f524e6c65d35',
+                    'label' => 'Section 1',
+                    'name' => 'section_1',
+                    'type' => 'group',
+                    'instructions' => '',
+                    'required' => 0,
+                    'conditional_logic' => 0,
+                    'wrapper' => array(
+                        'width' => '',
+                        'class' => '',
+                        'id' => '',
+                    ),
+                    'layout' => 'block',
+                    'sub_fields' => array(
+                        array(
+                            'key' => 'field_5f52504e65d36',
+                            'label' => 'Title',
+                            'name' => 'title',
+                            'type' => 'text',
+                            'instructions' => '',
+                            'required' => 0,
+                            'conditional_logic' => 0,
+                            'wrapper' => array(
+                                'width' => '',
+                                'class' => '',
+                                'id' => '',
+                            ),
+                            'default_value' => '',
+                            'placeholder' => '',
+                            'prepend' => '',
+                            'append' => '',
+                            'maxlength' => '',
+                        ),
+                        array(
+                            'key' => 'field_5f52505465d37',
+                            'label' => 'Text',
+                            'name' => 'text',
+                            'type' => 'wysiwyg',
+                            'instructions' => '',
+                            'required' => 0,
+                            'conditional_logic' => 0,
+                            'wrapper' => array(
+                                'width' => '',
+                                'class' => '',
+                                'id' => '',
+                            ),
+                            'default_value' => '',
+                            'tabs' => 'all',
+                            'toolbar' => 'basic',
+                            'media_upload' => 1,
+                            'delay' => 0,
+                        ),
+                    ),
+                ),
+                array(
+                    'key' => 'field_5f52508065d38',
+                    'label' => 'Section 2',
+                    'name' => 'section_2',
+                    'type' => 'group',
+                    'instructions' => '',
+                    'required' => 0,
+                    'conditional_logic' => 0,
+                    'wrapper' => array(
+                        'width' => '',
+                        'class' => '',
+                        'id' => '',
+                    ),
+                    'layout' => 'block',
+                    'sub_fields' => array(
+                        array(
+                            'key' => 'field_5f52508065d39',
+                            'label' => 'Title',
+                            'name' => 'title',
+                            'type' => 'text',
+                            'instructions' => '',
+                            'required' => 0,
+                            'conditional_logic' => 0,
+                            'wrapper' => array(
+                                'width' => '',
+                                'class' => '',
+                                'id' => '',
+                            ),
+                            'default_value' => '',
+                            'placeholder' => '',
+                            'prepend' => '',
+                            'append' => '',
+                            'maxlength' => '',
+                        ),
+                        array(
+                            'key' => 'field_5f52508065d3a',
+                            'label' => 'Text',
+                            'name' => 'text',
+                            'type' => 'wysiwyg',
+                            'instructions' => '',
+                            'required' => 0,
+                            'conditional_logic' => 0,
+                            'wrapper' => array(
+                                'width' => '',
+                                'class' => '',
+                                'id' => '',
+                            ),
+                            'default_value' => '',
+                            'tabs' => 'all',
+                            'toolbar' => 'basic',
+                            'media_upload' => 1,
+                            'delay' => 0,
+                        ),
+                    ),
+                ),
+                array(
+                    'key' => 'field_5f52508565d3b',
+                    'label' => 'Section 3',
+                    'name' => 'section_3',
+                    'type' => 'group',
+                    'instructions' => '',
+                    'required' => 0,
+                    'conditional_logic' => 0,
+                    'wrapper' => array(
+                        'width' => '',
+                        'class' => '',
+                        'id' => '',
+                    ),
+                    'layout' => 'block',
+                    'sub_fields' => array(
+                        array(
+                            'key' => 'field_5f52508565d3c',
+                            'label' => 'Title',
+                            'name' => 'title',
+                            'type' => 'text',
+                            'instructions' => '',
+                            'required' => 0,
+                            'conditional_logic' => 0,
+                            'wrapper' => array(
+                                'width' => '',
+                                'class' => '',
+                                'id' => '',
+                            ),
+                            'default_value' => '',
+                            'placeholder' => '',
+                            'prepend' => '',
+                            'append' => '',
+                            'maxlength' => '',
+                        ),
+                        array(
+                            'key' => 'field_5f52508565d3d',
+                            'label' => 'Text',
+                            'name' => 'text',
+                            'type' => 'wysiwyg',
+                            'instructions' => '',
+                            'required' => 0,
+                            'conditional_logic' => 0,
+                            'wrapper' => array(
+                                'width' => '',
+                                'class' => '',
+                                'id' => '',
+                            ),
+                            'default_value' => '',
+                            'tabs' => 'all',
+                            'toolbar' => 'basic',
+                            'media_upload' => 1,
+                            'delay' => 0,
+                        ),
+                    ),
+                ),
+                array(
+                    'key' => 'field_5f525b6465d3e',
+                    'label' => 'Section 4',
+                    'name' => 'section_4',
+                    'type' => 'group',
+                    'instructions' => '',
+                    'required' => 0,
+                    'conditional_logic' => 0,
+                    'wrapper' => array(
+                        'width' => '',
+                        'class' => '',
+                        'id' => '',
+                    ),
+                    'layout' => 'block',
+                    'sub_fields' => array(
+                        array(
+                            'key' => 'field_5f525b6465d3f',
+                            'label' => 'Title',
+                            'name' => 'title',
+                            'type' => 'text',
+                            'instructions' => '',
+                            'required' => 0,
+                            'conditional_logic' => 0,
+                            'wrapper' => array(
+                                'width' => '',
+                                'class' => '',
+                                'id' => '',
+                            ),
+                            'default_value' => '',
+                            'placeholder' => '',
+                            'prepend' => '',
+                            'append' => '',
+                            'maxlength' => '',
+                        ),
+                        array(
+                            'key' => 'field_5f525b6465d40',
+                            'label' => 'Text',
+                            'name' => 'text',
+                            'type' => 'wysiwyg',
+                            'instructions' => '',
+                            'required' => 0,
+                            'conditional_logic' => 0,
+                            'wrapper' => array(
+                                'width' => '',
+                                'class' => '',
+                                'id' => '',
+                            ),
+                            'default_value' => '',
+                            'tabs' => 'all',
+                            'toolbar' => 'basic',
+                            'media_upload' => 1,
+                            'delay' => 0,
+                        ),
+                        array(
+                            'key' => 'field_5f525b7165d41',
+                            'label' => 'Products',
+                            'name' => 'products',
+                            'type' => 'relationship',
+                            'instructions' => '',
+                            'required' => 0,
+                            'conditional_logic' => 0,
+                            'wrapper' => array(
+                                'width' => '',
+                                'class' => '',
+                                'id' => '',
+                            ),
+                            'post_type' => array(
+                                0 => 'product',
+                            ),
+                            'taxonomy' => '',
+                            'filters' => array(
+                                0 => 'search',
+                                1 => 'taxonomy',
+                            ),
+                            'elements' => array(
+                                0 => 'featured_image',
+                            ),
+                            'min' => '',
+                            'max' => '',
+                            'return_format' => 'id',
+                        ),
+                    ),
+                ),
+            ),
+            'location' => array(
+                array(
+                    array(
+                        'param' => 'page_template',
+                        'operator' => '==',
+                        'value' => 'views/template-aboutus.blade.php',
+                    ),
+                ),
+            ),
+            'menu_order' => 0,
+            'position' => 'normal',
+            'style' => 'default',
+            'label_placement' => 'top',
+            'instruction_placement' => 'label',
+            'hide_on_screen' => '',
+            'active' => true,
+            'description' => '',
+        ));
+        
+    endif;  // START About Us
+
 
 }
 add_action( 'init', 'cmpso_acf_fields' );

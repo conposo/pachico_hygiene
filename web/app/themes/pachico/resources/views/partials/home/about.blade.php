@@ -10,6 +10,7 @@
         <div class="">
             <span class="title d-inline-block mb-3">{!! $about_us['header'] !!}</span>
             {!! $about_us['text'] !!}
+            <a href="{!! $about_us['cta'] !!}" class="btn btn-sm text-uppercase">{!! $about_us['cta_label'] !!}</a>
         </div>
     </div>
 </section>

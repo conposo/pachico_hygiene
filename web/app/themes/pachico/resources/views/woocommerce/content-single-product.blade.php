@@ -33,6 +33,14 @@ if ( post_password_required() ) {
 ?>
 <div id="product-<?php the_ID(); ?>" <?php wc_product_class( 'my-6', $product ); ?>>
 
+	<style>
+		div#product-<?php the_ID(); ?> ul.products {
+			display: flex;
+			flex-wrap: wrap;
+			list-style: none;
+			padding: 0;
+		}
+	</style>
 	<div class="d-flex shadow-lg my-6 p-3"><!-- above the fold wrapper -->
 		<div class="w-50">
 			<?php
@@ -49,6 +57,7 @@ if ( post_password_required() ) {
 		<style>
 			figure img {
 				width: 100%;
+				height: auto;
 			}
 		</style>
 		<div class="summary entry-summary w-50">
@@ -76,6 +85,9 @@ if ( post_password_required() ) {
 			@else
 				no pictograms
 			@endif
+			<div class="local_nav">
+				<a href="#make_inquiry" class="btn btn-sm btn-outline-primary text-uppercase">make inquiry</a>
+			</div>
 		</div>
 	</div>
 
@@ -83,15 +95,21 @@ if ( post_password_required() ) {
 		<div class="shadow-sm p-1">
 			<iframe src="https://www.youtube.com/embed/{!! $video !!}" frameborder="0"></iframe>
 		</div>
-		<div class="shadow-sm p-1">
 		@if($files)
+			<div class="shadow-sm p-1">
 			@foreach($files as $file)
-				{{ var_dump($file) }}
+				@php
+				$file = $file['file'];
+				@endphp
+				<!-- {{ var_dump($file) }} -->
+				@if($file['mime_type'] == "application/pdf")
+					<a href="{{ $file['url'] }}" download="{{ $file['title'] }}">{{ $file['title'] }}</a>
+				@endif
 			@endforeach
+			</div>
 		@else
-			no added files
+			<!-- no added files -->
 		@endif
-		</div>
 	</div>
 
 	<div class="shadow-lg my-6 p-3">
@@ -99,7 +117,9 @@ if ( post_password_required() ) {
 
 		<div class="no_accordion" id="accordionExample">
 			<div class="mb-3">
-				<div class="border-bottom d-flex justify-content-between cursor-pointer text-uppercase small text-black" id="collapse_one" onclick="jQuery('i').addClass('fa-plus'); jQuery('#collapse_one').find('i').removeClass('fa-plus').addClass('fa-minus')" data-toggle="collapse" data-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
+				<div class="border-bottom d-flex justify-content-between cursor-pointer text-uppercase small text-black" id="collapse_one"
+					onclick="jQuery('#accordionExample i').addClass('fa-plus'); jQuery('#collapse_one').find('i').removeClass('fa-plus').addClass('fa-minus')"
+					data-toggle="collapse" data-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
 					<span class="">Application and recommendations</span>
 					<i class="fa fa-minus"></i>
 				</div>
@@ -123,7 +143,9 @@ if ( post_password_required() ) {
 				</div>
 			</div>
 			<div class="mb-3">
-				<div class="border-bottom d-flex justify-content-between cursor-pointer text-uppercase small text-black" id="collapse_two" onclick="jQuery('i').addClass('fa-plus'); jQuery('#collapse_two').find('i').removeClass('fa-plus').addClass('fa-minus')" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+				<div class="border-bottom d-flex justify-content-between cursor-pointer text-uppercase small text-black" id="collapse_two"
+				onclick="jQuery('#accordionExample i').addClass('fa-plus'); jQuery('#collapse_two').find('i').removeClass('fa-plus').addClass('fa-minus')"
+				data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
 					<span class="">Technical data</span>
 					<i class="fa fa-plus"></i>
 				</div>
@@ -159,16 +181,17 @@ if ( post_password_required() ) {
 
 
 
-	<div class="shadow-lg my-6 p-3" id="make_inquiere">
-		<!--  -->
+	<div class="shadow-lg my-6 p-3" id="make_inquiry">
 		<h3 class="text-uppercase small">make an inquiry</h3>
-		<form action="">
-			<input type="text">
-			<input type="text">
-			<input type="text">
-		</form>
+		{!! do_shortcode('[formidable id=2]') !!}
 	</div>
 
+	<script>
+		jQuery(document).ready(function(){
+			hidden_input_id = jQuery('.frm_fields_container > div+input[type=hidden]').attr('id');
+			jQuery('input#'+hidden_input_id).val('<a href="{{get_permalink()}}" target="_blank">'+jQuery('h1').text()+'</a>')
+		})
+	</script>
 
 
 	<?php

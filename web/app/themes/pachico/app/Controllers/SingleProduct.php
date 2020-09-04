@@ -41,15 +41,4 @@ class SingleProduct extends Controller
         return get_field('product_description');
     }
 
-
-
-    
-    public function Timeline() {
-        $timeline = get_field('timeline');
-        // dd($timeline);
-        return $timeline['timeline'];
-    }
-
-
-
 }
