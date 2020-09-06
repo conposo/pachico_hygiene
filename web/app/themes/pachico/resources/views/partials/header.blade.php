@@ -6,7 +6,7 @@
     </a>
     <nav id="nav_primary" class="nav-primary local_nav d-none d-lg-flex align-items-center">
       @if ( is_front_page() && has_nav_menu('home_navigation'))
-      {!! wp_nav_menu(['theme_location' => 'home_navigation', 'menu_class' => 'nav', 'container_class' => '', 'items_wrap' => '<ul id="%1$s" class="%2$s d-flex flex-column">%3$s</ul>']) !!}
+      {!! wp_nav_menu(['theme_location' => 'home_navigation', 'menu_class' => 'nav', 'container_class' => '', 'items_wrap' => '<ul id="%1$s" class="%2$s d-flex flex-column flex-sm-row">%3$s</ul>']) !!}
         <!-- <div id="wp_nav_menu" class="">
         </div> -->
       @elseif (has_nav_menu('primary_navigation'))
