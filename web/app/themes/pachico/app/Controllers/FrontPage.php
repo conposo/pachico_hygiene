@@ -30,11 +30,7 @@ class FrontPage extends Controller
     public function about_us() {
         $about_us = get_field('about_us');
         // dd($about_us);
-        return [
-            'image' => $about_us['image'],
-            'header' => $about_us['header'],
-            'text' => $about_us['text'],
-        ];
+        return $about_us;
     }
 
     public function product_groups() {

@@ -29,10 +29,13 @@
         @if (has_nav_menu('footer_navigation'))
           {!! wp_nav_menu(['theme_location' => 'footer_navigation', 'menu_class' => '']) !!}
         @endif
-      </div>
-      <div class="col-6">
         @if (has_nav_menu('social_links'))
           {!! wp_nav_menu(['theme_location' => 'social_links', 'menu_class' => '']) !!}
+        @endif
+      </div>
+      <div class="col-6">
+        @if (has_nav_menu('products_categories_navigation'))
+          {!! wp_nav_menu(['theme_location' => 'products_categories_navigation', 'menu_class' => '']) !!}
         @endif
       </div>
     </div>

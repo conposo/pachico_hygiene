@@ -6,8 +6,6 @@
     <!-- @ include('partials.content-page') -->
   <!-- @ endwhile -->
 
-
-
   <!-- HERO -->
   @include('partials.home.hero')
   

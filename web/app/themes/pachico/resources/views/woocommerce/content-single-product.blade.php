@@ -41,8 +41,8 @@ if ( post_password_required() ) {
 			padding: 0;
 		}
 	</style>
-	<div class="d-flex shadow-lg my-6 p-3"><!-- above the fold wrapper -->
-		<div class="w-50">
+	<div class="row my-3 my-sm-6 p-3"><!-- above the fold wrapper -->
+		<div class="col-12 col-sm-6">
 			<?php
 			/**
 			 * Hook: woocommerce_before_single_product_summary.
@@ -54,13 +54,7 @@ if ( post_password_required() ) {
 			?>
 		</div>
 
-		<style>
-			figure img {
-				width: 100%;
-				height: auto;
-			}
-		</style>
-		<div class="summary entry-summary w-50">
+		<div class="summary entry-summary col-12 col-sm-6">
 			<?php
 			/**
 			 * Hook: woocommerce_single_product_summary.
@@ -77,7 +71,7 @@ if ( post_password_required() ) {
 			do_action( 'woocommerce_single_product_summary' );
 			?>
 			@if($pictograms)
-				<div class="d-flex">
+				<div class="d-flex mb-3">
 				@foreach($pictograms as $pictogram)
 					<div style="width:20px;">{!! $pictogram !!}</div>
 				@endforeach
@@ -85,18 +79,18 @@ if ( post_password_required() ) {
 			@else
 				no pictograms
 			@endif
-			<div class="local_nav">
+			<div id="cta_make_inquiry" class="local_nav">
 				<a href="#make_inquiry" class="btn btn-sm btn-outline-primary text-uppercase">make inquiry</a>
 			</div>
 		</div>
 	</div>
 
-	<div class="shadow-lg my-6 p-3">
-		<div class="shadow-sm p-1">
+	<div class="shadow-lg my-3 my-sm-6 p-3">
+		<div class="mb-2">
 			<iframe src="https://www.youtube.com/embed/{!! $video !!}" frameborder="0"></iframe>
 		</div>
 		@if($files)
-			<div class="shadow-sm p-1">
+			<div class="">
 			@foreach($files as $file)
 				@php
 				$file = $file['file'];
@@ -112,12 +106,12 @@ if ( post_password_required() ) {
 		@endif
 	</div>
 
-	<div class="shadow-lg my-6 p-3">
+	<div class="my-3 my-sm-6">
 		<!-- {!! var_dump($product_description) !!} -->
 
 		<div class="no_accordion" id="accordionExample">
-			<div class="mb-3">
-				<div class="border-bottom d-flex justify-content-between cursor-pointer text-uppercase small text-black" id="collapse_one"
+			<div class="px-1 py-1">
+				<div class="d-flex justify-content-between align-items-center cursor-pointer text-uppercase small text-black" id="collapse_one"
 					onclick="jQuery('#accordionExample i').addClass('fa-plus'); jQuery('#collapse_one').find('i').removeClass('fa-plus').addClass('fa-minus')"
 					data-toggle="collapse" data-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
 					<span class="">Application and recommendations</span>
@@ -125,25 +119,25 @@ if ( post_password_required() ) {
 				</div>
 				<div id="collapseOne" class="collapse show" data-parent="#accordionExample">
 					<div class="bg-light shadow-sm my-2 p-1">
-						<span class="mb-1 d-block border-bottom text-dark font-weight-bold text-uppercase small">application</span>
+						<span class="mb-1 d-block text-dark font-weight-bold text-uppercase small">application</span>
 						{!! $product_description['application'] !!}
 					</div>
 					<div class="bg-light shadow-sm my-2 p-1">
-						<span class="mb-1 d-block border-bottom text-dark font-weight-bold text-uppercase small">recommendations</span>
+						<span class="mb-1 d-block text-dark font-weight-bold text-uppercase small">recommendations</span>
 						{!! $product_description['recommendations'] !!}
 					</div>
 					<div class="bg-light shadow-sm my-2 p-1">
-						<span class="mb-1 d-block border-bottom text-dark font-weight-bold text-uppercase small">suitable for</span>
+						<span class="mb-1 d-block text-dark font-weight-bold text-uppercase small">suitable for</span>
 						{!! $product_description['suitable_for'] !!}
 					</div>
 					<div class="bg-light shadow-sm my-2 p-1">
-						<span class="mb-1 d-block border-bottom text-dark font-weight-bold text-uppercase small">packages</span>
+						<span class="mb-1 d-block text-dark font-weight-bold text-uppercase small">packages</span>
 						{!! $product_description['packages'] !!}
 					</div>
 				</div>
 			</div>
-			<div class="mb-3">
-				<div class="border-bottom d-flex justify-content-between cursor-pointer text-uppercase small text-black" id="collapse_two"
+			<div class="mb-3 px-1 py-1">
+				<div class="d-flex justify-content-between align-items-center cursor-pointer text-uppercase small text-black" id="collapse_two"
 				onclick="jQuery('#accordionExample i').addClass('fa-plus'); jQuery('#collapse_two').find('i').removeClass('fa-plus').addClass('fa-minus')"
 				data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
 					<span class="">Technical data</span>
@@ -151,15 +145,15 @@ if ( post_password_required() ) {
 				</div>
 				<div id="collapseTwo" class="collapse" data-parent="#accordionExample">
 					<div class="bg-light shadow-sm my-2 p-1">
-						<span class="mb-1 d-block border-bottom text-dark font-weight-bold text-uppercase small">technical characteristics</span>
+						<span class="mb-1 d-block text-dark font-weight-bold text-uppercase small">technical characteristics</span>
 						{!! $product_description['technical_characteristics'] !!}
 					</div>
 					<div class="bg-light shadow-sm my-2 p-1">
-						<span class="mb-1 d-block border-bottom text-dark font-weight-bold text-uppercase small">safety</span>
+						<span class="mb-1 d-block text-dark font-weight-bold text-uppercase small">safety</span>
 						{!! $product_description['safety_recommendations'] !!}
 					</div>
 					<div class="bg-light shadow-sm my-2 p-1">
-						<span class="mb-1 d-block border-bottom text-dark font-weight-bold text-uppercase small">expiry_date</span>
+						<span class="mb-1 d-block text-dark font-weight-bold text-uppercase small">expiry_date</span>
 						{!! $product_description['expiry_date'] !!}
 					</div>
 					<div class="">
@@ -180,8 +174,7 @@ if ( post_password_required() ) {
 	</div>
 
 
-
-	<div class="shadow-lg my-6 p-3" id="make_inquiry">
+	<div class="shadow-lg my-3 my-sm-6 px-1 p-sm-3" id="make_inquiry">
 		<h3 class="text-uppercase small">make an inquiry</h3>
 		{!! do_shortcode('[formidable id=2]') !!}
 	</div>

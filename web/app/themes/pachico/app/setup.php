@@ -48,6 +48,7 @@ add_action('after_setup_theme', function () {
         'home_navigation' => __('Home Navigation', 'sage'),
         'side_navigation' => __('Side Navigation', 'sage'),
         'footer_navigation' => __('Footer Navigation', 'sage'),
+        'products_categories_navigation' => __('Products Categories Navigation', 'sage'),
         'social_links' => __('Social Links', 'sage'),
     ]);
 

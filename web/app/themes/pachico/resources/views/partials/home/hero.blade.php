@@ -3,7 +3,7 @@
 // dd( $hero );
 
 ?>
-<div class="hero d-flex flex-column">
+<div class="hero d-flex flex-column mb-5">
     
     <div class="carousel-images w-auto">
         <?php
@@ -28,15 +28,5 @@
 
     <svg class="diagonal home-left" width="21%" height="170" viewBox="0 0 100 102" preserveAspectRatio="none"><path d="M0 100 L100 100 L0 10 Z"></path></svg>
     <svg class="diagonal home-right" width="80%" height="170" viewBox="0 0 100 102" preserveAspectRatio="none"><path d="M0 100 L100 100 L100 10 Z"></path></svg>
+
 </div>
-
-<link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
-<script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
-
-<script src="https://cdn.jsdelivr.net/npm/typeit@5.5.0/dist/typeit.min.js"></script>
-
-<script charset="utf-8">
-</script>
-
-<style>
-</style>

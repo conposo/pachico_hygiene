@@ -1,0 +1,24 @@
+body.single-product .product {
+
+
+    figure {
+        img {
+            width: 100%;
+            height: auto;
+        }
+    }
+
+    #cta_make_inquiry {
+        a {
+
+            @include media-breakpoint-down(md) {
+                width: 100%;
+            }
+        }
+    }
+
+    iframe {
+        width: 100%;
+        min-height: 250px;
+    }
+}

@@ -111,90 +111,96 @@ body.home {
     } // HERO END
     
     // ABOUT START
-    .about {
-        figure {
-            background: #e8e8e8;
-    
-            @include media-breakpoint-up(md) {
-                width: 40%;
-                padding-bottom: 50px;
-                padding-left: 20px;
-                + div {
-                    padding-left: 90px;
-                    width: 60%;
-                }
-            }
-    
-            img {
-                @include media-breakpoint-down(md) {
-                    box-shadow: 0 1rem 3rem rgba(0, 0, 0, 0.175) !important;
-                }
+    #about {
+        min-height: 100vh;
+        .about {
+            figure {
+                background: #e8e8e8;
+        
                 @include media-breakpoint-up(md) {
-                    margin-top: -30px;
-                    right: -30px;    
+                    width: 40%;
+                    padding-bottom: 50px;
+                    padding-left: 20px;
+                    + div {
+                        padding-left: 90px;
+                        width: 60%;
+                    }
+                }
+        
+                img {
+                    @include media-breakpoint-down(md) {
+                        box-shadow: 0 1rem 3rem rgba(0, 0, 0, 0.175) !important;
+                    }
+                    @include media-breakpoint-up(md) {
+                        margin-top: -30px;
+                        right: -30px;    
+                    }
                 }
             }
-        }
-    
-        div {
-            .title {
-                font-weight: bold;
-                font-size: 32px;
-                // border-bottom: 5px solid;
+        
+            > div {
+                .title {
+                    font-weight: bold;
+                    font-size: 32px;
+                    // border-bottom: 5px solid;
+                }
             }
         }
     } // ABOUT END
-    
-    
-    
+
     // PRODUCTS START
-    .products {
-    
-        .grid-item {
-            width: 33.3%;
-            /* min-height: 250px; */
-            > div {
-                overflow: hidden;
-            }
+    #products {
+        @include media-breakpoint-up(md) {
+            min-height: 100vh;
         }
-        /* .grid-item--width2 {
-            width: 50%;
-        } */
-    
-        img {
-            &:hover {
-                opacity: 0;
+        .products {
+        
+            .grid-item {
+                width: 33.3%;
+                /* min-height: 250px; */
+                > div {
+                    overflow: hidden;
+                }
             }
-            + .blurred {
-                top: 0;
-                right: 0;
-                bottom: 0;
-                left: 0;
-                background-color: #fff;
-                opacity: 0;
-                transition: opacity 0.3s ease;
-    
+            /* .grid-item--width2 {
+                width: 50%;
+            } */
+        
+            img {
                 &:hover {
-                    opacity: 1 !important;
+                    opacity: 0;
                 }
-    
-                img {
-                    filter: blur(8px);
-                    -webkit-filter: blur(8px);
-                    opacity: 0.7;
-                }
-                span.product_title {
-                    top: 45%;
+                + .blurred {
+                    top: 0;
+                    right: 0;
+                    bottom: 0;
                     left: 0;
-                    height: 0;
-                    span {
-                        font-size: 14px;
-                        font-weight: 700;
-                        color: $primary;
-                        text-shadow: 0 0 25px #fff;
-                        + span {
-                            font-size: 20px;
-                            font-weight: 500;
+                    background-color: #fff;
+                    opacity: 0;
+                    transition: opacity 0.3s ease;
+        
+                    &:hover {
+                        opacity: 1 !important;
+                    }
+        
+                    img {
+                        filter: blur(8px);
+                        -webkit-filter: blur(8px);
+                        opacity: 0.7;
+                    }
+                    span.product_title {
+                        top: 45%;
+                        left: 0;
+                        height: 0;
+                        span {
+                            font-size: 14px;
+                            font-weight: 700;
+                            color: $primary;
+                            text-shadow: 0 0 25px #fff;
+                            + span {
+                                font-size: 20px;
+                                font-weight: 500;
+                            }
                         }
                     }
                 }

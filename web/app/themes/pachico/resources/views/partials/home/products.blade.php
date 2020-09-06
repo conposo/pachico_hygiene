@@ -1,17 +1,15 @@
 <?php
-
 // dd( $about_us );
-
 ?>
 
 <script src="https://unpkg.com/isotope-layout@3/dist/isotope.pkgd.min.js"></script>
 
-<section id="products" class="container vh-100 d-flex flex-column justify-content-center">
+<section id="products" class="container d-flex flex-column justify-content-center mb-5">
 
-    <div class="button-group filter-button-group">
-        <button class="d-inline-block shadow-sm border-0 bg-primary text-white rounded py-1 px-2 text-uppercase" data-filter="*">show all</button>
+    <div class="button-group filter-button-group mb-4">
+        <button class="btn-sm d-inline-block shadow-sm border-0 bg-primary text-white rounded py-1 px-2 text-uppercase" data-filter="*">show all</button>
         @foreach($product_groups as $group)
-            <button class="d-inline-block shadow-sm border-0 bg-primary text-white rounded py-1 px-2 text-uppercase" data-filter=".{{ str_replace(' ', '', $group['label']) }}">{{ $group['label'] }}</button>
+            <button class="btn-sm d-inline-block shadow-sm border-0 bg-primary text-white rounded py-1 px-2 text-uppercase" data-filter=".{{ str_replace(' ', '', $group['label']) }}">{{ $group['label'] }}</button>
         @endforeach
     </div>
 
@@ -22,7 +20,7 @@
             $product_image_id = $item['product'];
             //dd($product_image_id);
             @endphp
-            <div class="grid-item {{ str_replace(' ', '', $group['label']) }} p-3">
+            <div class="grid-item {{ str_replace(' ', '', $group['label']) }} mb-2 px-1 px-lg-3">
                 <a href="{!! get_permalink($product_image_id) !!}" class="position-relative d-block">
                     <div class="position-relative">
                         {!! get_the_post_thumbnail($product_image_id, 'thumbnail', ['class' => 'w-100 h-auto']) !!}

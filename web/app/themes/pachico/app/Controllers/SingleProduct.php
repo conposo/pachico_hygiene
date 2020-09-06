@@ -23,9 +23,9 @@ class SingleProduct extends Controller
         return get_field('pictograms');
     }
 
-    public function the_excerpt() {
-        return get_the_excerpt();
-    }
+    // public function the_excerpt() {
+    //     return get_the_excerpt();
+    // }
 
     // NEXT section
 
