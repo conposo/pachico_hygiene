@@ -19,7 +19,7 @@
       @elseif( is_single() )
         <a href="{{ get_permalink( get_option( 'page_for_posts' ) ) }}" class="small text-black-50 text-uppercase" title="">Blog</a>
         <span class="small text-black-50"><i class="fa fa-chevron-right"></i></span>
-        <a href="#" class="small text-black-50 text-uppercase" title="You are here. Go to top">{{ get_the_title( is_shop() ? wc_get_page_id('shop') : get_the_ID() ) }}</a>
+        <a href="#" class="small text-black-50 text-uppercase" title="You are here. Go to top">{{ get_the_title() }}</a>
       @elseif( ! is_front_page() && ! is_home() )
         <span class="small text-black-50"><i class="fa fa-chevron-right"></i></span>
         <a href="#" class="small text-black-50 text-uppercase" title="You are here. Go to top">{{ get_the_title( is_shop() ? wc_get_page_id('shop') : get_the_ID() ) }}</a>
@@ -29,20 +29,23 @@
 
   <div class="container">
     <div class="row">
-      <div class="col-4">
+      <div class="col-12 col-sm-4">
         @if (has_nav_menu('footer_navigation'))
           {!! wp_nav_menu(['theme_location' => 'footer_navigation', 'menu_class' => '']) !!}
         @endif
-        @if (has_nav_menu('social_links'))
-          {!! wp_nav_menu(['theme_location' => 'social_links', 'menu_class' => '']) !!}
-        @endif
       </div>
-      <div class="col-4">
+      <div class="col-12 col-sm-4">
         @if (has_nav_menu('products_categories_navigation'))
           {!! wp_nav_menu(['theme_location' => 'products_categories_navigation', 'menu_class' => '']) !!}
         @endif
       </div>
-      <div class="col-2">
+      <div class="col-12 col-sm-4">
+        @if (has_nav_menu('contacts_navigation'))
+          {!! wp_nav_menu(['theme_location' => 'contacts_navigation', 'menu_class' => '_border-bottom mb-2']) !!}
+        @endif
+        @if (has_nav_menu('social_links'))
+          {!! wp_nav_menu(['theme_location' => 'social_links', 'menu_class' => 'd-flex']) !!}
+        @endif
       </div>
     </div>
   </div>
@@ -50,7 +53,7 @@
   <div class="container">
     <div class="d-flex justify-content-between py-1 small border-top">
       <div class="d-flex">
-        <p>Copyright © 2020 PaChico Inc. All rights reserved.</p>
+        <p class="m-0">Copyright © 2020 PaChico Inc. All rights reserved.</p>
         /
         <a class="mx-1" href="#">Terms & Conditions</a>
         /

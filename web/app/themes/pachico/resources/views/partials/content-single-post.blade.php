@@ -6,13 +6,11 @@
         <span class="small text-uppercase">{!! wp_get_attachment_caption() !!}</span>
       </caption>
     </figure>
-    <div class="position-absolute w-100 py-5 border-top" style="bottom: 0; background: rgb(255,255,255);
+    <div class="position-absolute w-100 py-2 py-sm-5 border-top" style="bottom: 0; background: rgb(255,255,255);
       background: linear-gradient(0deg, rgba(255,255,255,1) 0%, rgba(255,255,255,0.22032563025210083) 100%);">
       <div class="container">
         <div class="row">
-          <div class="col-2">
-          </div>
-          <div class="col-8">
+          <div class="col-10 col-sm-8 mx-auto">
             <h1 class="entry-title">{!! get_the_title() !!}</h1>
           </div>
         </div>
@@ -21,10 +19,8 @@
   </header>
   <div class="entry-content container">
     <div class="row">
-      <div class="col-2">
-      </div>
-      <div class="col-8">
-        @php the_content() @endphp
+        <div class="col-10 col-sm-8 mx-auto">
+          @php the_content() @endphp
       </div>
     </div>
   </div>

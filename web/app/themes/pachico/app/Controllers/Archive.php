@@ -11,6 +11,12 @@ class Archive extends Controller
 
     public function __construct()
     {
-        // dd(5);
+        // dd();
+    }
+
+    public function categories() {
+        $categories = get_field('categories', wc_get_page_id('shop'));
+        // dd($categories, get_the_id());
+        return $categories;
     }
 }

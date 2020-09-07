@@ -32,6 +32,24 @@ the readme will list any important changes.
     @endphp
   </header>
 
+  <!-- print categories -->
+
+  <figure class="mb-0" style="max-height: 450px; overflow: hidden;">
+    {!! get_the_post_thumbnail(wc_get_page_id('shop'), 'full', ['class' => 'w-100 h-auto']) !!}
+    <caption>
+      <span class="small text-uppercase bg-white pl-1 position-absolute" style="top: 0;right: 0;">{!! the_post_thumbnail_caption() !!}</span>
+    </caption>
+  </figure>
+
+  @foreach( $categories as $cat )
+  <div class="col">
+    <a href="{{get_term_link($cat->term_id)}}">
+      {{$cat->name}}
+      {{$cat->description}}
+    </a>
+  </div>
+  @endforeach
+
   @if(woocommerce_product_loop())
     @php
       do_action('woocommerce_before_shop_loop');
@@ -57,6 +75,8 @@ the readme will list any important changes.
       do_action('woocommerce_no_products_found');
     @endphp
   @endif
+  <div class="d-none">
+  </div>
 
   @php
     do_action('woocommerce_after_main_content');

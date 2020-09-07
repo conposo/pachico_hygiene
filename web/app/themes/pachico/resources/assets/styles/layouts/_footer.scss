@@ -10,6 +10,11 @@ footer.content-info {
     ul {
         padding: 0;
         list-style: none;
+
+        li.menu-item a {
+            color: #555;
+            font-weight: 300;
+        }
     }
 
 }
