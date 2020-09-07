@@ -17,10 +17,10 @@
           'wrap_after' => '',
           ]) }}
       @elseif( is_single() )
-        <a href="/blog" class="small text-black-50 text-uppercase" title="">Blog</a>
+        <a href="{{ get_permalink( get_option( 'page_for_posts' ) ) }}" class="small text-black-50 text-uppercase" title="">Blog</a>
         <span class="small text-black-50"><i class="fa fa-chevron-right"></i></span>
         <a href="#" class="small text-black-50 text-uppercase" title="You are here. Go to top">{{ get_the_title( is_shop() ? wc_get_page_id('shop') : get_the_ID() ) }}</a>
-      @elseif( ! is_front_page() )
+      @elseif( ! is_front_page() && ! is_home() )
         <span class="small text-black-50"><i class="fa fa-chevron-right"></i></span>
         <a href="#" class="small text-black-50 text-uppercase" title="You are here. Go to top">{{ get_the_title( is_shop() ? wc_get_page_id('shop') : get_the_ID() ) }}</a>
       @endif

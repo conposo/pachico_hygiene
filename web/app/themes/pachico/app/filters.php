@@ -130,8 +130,25 @@ add_filter( 'woocommerce_enqueue_styles', '__return_empty_array' );
 
 
 
+add_filter( 'excerpt_more', function($link) {
+    return ; //'<a class="more-link" href="' . get_permalink() . '">View More Photos!</a>';
+});
+
 /*
  * Remove excerpt from single product
  */
 // remove_action( 'woocommerce_single_product_summary', 'woocommerce_template_single_excerpt', 20 );
 // add_action( 'woocommerce_single_product_summary', 'the_content', 20 );
+
+function the_post_thumbnail_caption() {
+    global $post;
+   
+    $thumbnail_id    = get_post_thumbnail_id($post->ID);
+    $thumbnail_image = get_posts(array('p' => $thumbnail_id, 'post_type' => 'attachment'));
+   
+     if ($thumbnail_image && isset($thumbnail_image[0])) {
+      return '<div class="front-caption">'.$thumbnail_image[0]->post_excerpt.'</div>';
+     } else {
+       return;
+     }
+   } 

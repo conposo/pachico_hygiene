@@ -7,7 +7,7 @@
       </caption>
     </figure>
     <div class="position-absolute w-100 py-5 border-top" style="bottom: 0; background: rgb(255,255,255);
-background: linear-gradient(0deg, rgba(255,255,255,1) 0%, rgba(255,255,255,0.22032563025210083) 100%);">
+      background: linear-gradient(0deg, rgba(255,255,255,1) 0%, rgba(255,255,255,0.22032563025210083) 100%);">
       <div class="container">
         <div class="row">
           <div class="col-2">

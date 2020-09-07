@@ -9,7 +9,7 @@ class App extends Controller
 
     public function ContainerClass()
     {
-        return (is_front_page() || is_single()) ? '' : 'container';
+        return ( is_front_page() || (is_single() && !is_product()) ) ? '' : 'container';
     }
 
     public function siteName()
