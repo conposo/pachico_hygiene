@@ -16,6 +16,10 @@
           'wrap_before' => '<span class="mx-1 small text-black-50"><i class="fa fa-chevron-right"></i></span>',
           'wrap_after' => '',
           ]) }}
+      @elseif( is_single() )
+        <a href="/blog" class="small text-black-50 text-uppercase" title="">Blog</a>
+        <span class="small text-black-50"><i class="fa fa-chevron-right"></i></span>
+        <a href="#" class="small text-black-50 text-uppercase" title="You are here. Go to top">{{ get_the_title( is_shop() ? wc_get_page_id('shop') : get_the_ID() ) }}</a>
       @elseif( ! is_front_page() )
         <span class="small text-black-50"><i class="fa fa-chevron-right"></i></span>
         <a href="#" class="small text-black-50 text-uppercase" title="You are here. Go to top">{{ get_the_title( is_shop() ? wc_get_page_id('shop') : get_the_ID() ) }}</a>
@@ -25,7 +29,7 @@
 
   <div class="container">
     <div class="row">
-      <div class="col-6">
+      <div class="col-4">
         @if (has_nav_menu('footer_navigation'))
           {!! wp_nav_menu(['theme_location' => 'footer_navigation', 'menu_class' => '']) !!}
         @endif
@@ -33,26 +37,30 @@
           {!! wp_nav_menu(['theme_location' => 'social_links', 'menu_class' => '']) !!}
         @endif
       </div>
-      <div class="col-6">
+      <div class="col-4">
         @if (has_nav_menu('products_categories_navigation'))
           {!! wp_nav_menu(['theme_location' => 'products_categories_navigation', 'menu_class' => '']) !!}
         @endif
       </div>
+      <div class="col-2">
+      </div>
     </div>
   </div>
 
-  <div class="container d-flex justify-content-between py-2 border-top">
-    <div class="d-flex">
-      <p>Copyright © 2020 PaChico Inc. All rights reserved.</p>
-      /
-      <a class="mx-1" href="#">Terms & Conditions</a>
-      /
-      <a class="mx-1" href="#">Privacy policy</a>
-      /
-      <a class="mx-1" href="#">Sitemap</a>
-    </div>
-    <div class="language_switcher">
-      <i class="fa fa-flag"></i>
+  <div class="container">
+    <div class="d-flex justify-content-between py-1 small border-top">
+      <div class="d-flex">
+        <p>Copyright © 2020 PaChico Inc. All rights reserved.</p>
+        /
+        <a class="mx-1" href="#">Terms & Conditions</a>
+        /
+        <a class="mx-1" href="#">Privacy policy</a>
+        /
+        <a class="mx-1" href="#">Sitemap</a>
+      </div>
+      <div class="language_switcher">
+        <i class="fa fa-flag"></i>
+      </div>
     </div>
   </div>
 

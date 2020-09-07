@@ -16,6 +16,7 @@
   @include('partials.home.products')
 
   <!-- news -->
+  @include('partials.common.blog')
 
   <!-- contacts -->
 
