@@ -22,17 +22,29 @@ the readme will list any important changes.
     do_action('woocommerce_before_main_content');
   @endphp
 
-  <header class="my-6 pt-3 pb-4 text-center woocommerce-products-header" style="">
+  @if( !is_shop() && $category = get_queried_object() )
+    @php
+      $category_term_id = $category->term_id;
+      // dd($category);
+      $thumbnail_id = get_term_meta( $category->term_id, 'thumbnail_id', true );
+      $image_url = wp_get_attachment_image_src( $thumbnail_id, 'full' );
+    @endphp
+    <div id="categpry_header" class="position-absolute w-100">
+      <img class="w-100" src="{{ $image_url[0] }}" alt="" srcset="">
+    </div>
+  @endif
+
+  <header class="woocommerce-products-header my-6 pt-3 pb-4 text-center">
     <div class="d-inline-flex flex-column">
-      <div class="header_blue d-inline-flex flex-column mb-1 py-4 px-4 text-white">
+      <div class="header_blue d-inline-flex flex-column py-4 px-4 text-white">
         @if(apply_filters('woocommerce_show_page_title', true))
-          <h1 class="woocommerce-products-header__title page-title m-0">{!! woocommerce_page_title(false) !!}</h1>
+          <h1 class="woocommerce-products-header__title page-title mb-3">{!! woocommerce_page_title(false) !!}</h1>
         @endif
         @php
           do_action('woocommerce_archive_description');
         @endphp
       </div>
-      <div class="header_blue_light d-inline-flex"></div>
+      <div class="_mx-auto header_blue_light d-inline-flex"></div>
     </div>
   </header>
 
@@ -45,27 +57,7 @@ the readme will list any important changes.
     </caption>
   </figure> -->
 
-  <div class="d-flex flex-wrap justify-content-between">
-    @foreach( $categories as $cat )
-      @php
-      $thumbnail_id = get_term_meta( $cat->term_id, 'thumbnail_id', true );
-      // get the medium-sized image url
-      $image = wp_get_attachment_image_src( $thumbnail_id, 'medium' );
-      // Output in img tag
-      @endphp
-      <div class="card-category position-relative mb-6" style="background-image: url({{$image[0]}}); background-size: cover; background-position: center;">
-        <a href="{{get_term_link($cat->term_id)}}"
-          class="position-relative d-flex justify-content-start align-items-end p-2 w-100 h-100 text-white">
-          {{$cat->name}}
-          <!-- <span>{{$cat->description}}</span> -->
-        </a>
-        <div class="">
-        </div>
-      </div>
-    @endforeach
-  </div>
-
-  @if(woocommerce_product_loop())
+  @if( !is_shop() && woocommerce_product_loop() )
     @php
       do_action('woocommerce_before_shop_loop');
       woocommerce_product_loop_start();
@@ -87,9 +79,42 @@ the readme will list any important changes.
     @endphp
   @else
     @php
-      do_action('woocommerce_no_products_found');
+      // do_action('woocommerce_no_products_found');
     @endphp
   @endif
+
+  @if( true || is_shop() )
+  <div class="mt-6 d-flex flex-wrap justify-content-between">
+    @foreach( $categories as $cat )
+      @php
+      $thumbnail_id = get_term_meta( $cat->term_id, 'thumbnail_id', true );
+      $image = wp_get_attachment_image_src( $thumbnail_id, 'medium' );
+      @endphp
+      <div class="card-category position-relative mb-6 @if( isset($category_term_id) && $category_term_id == $cat->term_id ) disabled @endif" style="background-image: url({{$image[0]}}); background-size: cover; background-position: center;">
+        <a
+          @if( is_shop() || (isset($category_term_id) && $category_term_id != $cat->term_id) )
+          href="{{get_term_link($cat->term_id)}}"
+          @else
+          href="#"
+          @endif
+          class="position-relative d-flex justify-content-start align-items-end p-2 w-100 h-100 text-white">
+          <span class="cat_name">{{$cat->name}}</span>
+          @if( isset($category_term_id) && $category_term_id == $cat->term_id )
+          <span class="show_in_hover position-absolute">
+            <i class="fas fa-arrow-up position-absolute"></i>
+            В момента сте тук. Нагоре?
+          </span>
+          @endif  
+          <!-- <span>{{$cat->description}}</span> -->
+        </a>
+        <div class="arrow-go position-absolute text-white">
+          <i class="fas fa-arrow-right"></i>
+        </div>
+      </div>
+    @endforeach
+  </div>
+  @endif
+
   <div class="d-none">
   </div>
 

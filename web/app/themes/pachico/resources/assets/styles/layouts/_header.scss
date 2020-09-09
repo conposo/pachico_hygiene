@@ -1,3 +1,5 @@
+$bg-header: #006daf;
+
 .banner .nav li {
   @extend .nav-item;
 }
@@ -12,9 +14,20 @@ header.banner {
   top: 0;
   z-index: 2;
 
-  background-color: $primary;
-  background-color: #006fb5;
-  background-color: #006daf;
+  background-color: $bg-header;
+
+  transition: padding 0.450s ease-in-out;
+
+  #nav_primary {
+    transition: opacity 0.550s ease;
+  }
+
+  &.hidden0 {
+    padding: 10px 0 10px !important;
+    #nav_primary {
+      opacity: 0;
+    }
+  }
 
   a {
     color: #fff !important;
@@ -55,5 +68,19 @@ header.banner {
       width: 100%;
       background-color: #006daf;
     }
+  }
+}
+
+#category_main_header {
+  top: -60px;
+  left: 0;
+  z-index: 9;
+  transition: all .450s ease-in-out;
+  &.shown {
+    top: 3px;
+  }
+
+  &:hover {
+    z-index: -1;
   }
 }

@@ -1,4 +1,15 @@
-<header class="banner {{ is_front_page() ? 'home top position-fixed' : 'position-relative' }} w-100 py-1 py-lg-3 shadow-lg">
+@if( is_product_category() )
+  @php
+    $category = get_queried_object();
+  @endphp
+  <div id="category_main_header" class="h5 m-0 position-fixed w-100 py-2 text-center text-uppercase text-white">
+    <span>
+      {{ $category->name }}
+    </span>
+  </div>
+@endif
+
+<header class="banner {{ is_front_page() ? 'home top position-fixed' : 'position-sticky' }} w-100 py-1 py-lg-3 shadow-lg" style="top:0;">
   <div class="container d-flex justify-content-between">
     <a class="brand position-relative" href="{{ home_url('/') }}">
       <!-- {{ get_bloginfo('name', 'display') }} -->
@@ -22,7 +33,6 @@
   </div>
 </header>
 
-
 <script>
 const $ = jQuery;
 $(document).ready(function() {
@@ -40,7 +50,32 @@ $(document).ready(function() {
       $('#nav_primary').removeClass('d-none').addClass('d-flex')
     }
   })
+
+  jQuery('.banner').hover(
+    function(e){
+      e.stopPropagation();
+      jQuery('#category_main_header').removeClass('shown')
+      jQuery('.banner').removeClass('hidden0');
+    },
+    function(e){
+      e.stopPropagation();
+    },
+  )
 })
+
+
+window.onscroll = function(e) {
+  // print "false" if direction is down and "true" if up
+  console.log(this.oldScroll > this.scrollY);
+  if( this.oldScroll > this.scrollY && this.scrollY < (jQuery('body').height() - jQuery(window).height()) ) {
+    jQuery('#category_main_header').removeClass('shown')
+    jQuery('.banner').removeClass('hidden0');
+  } else if( this.scrollY > jQuery('.woocommerce-products-header').height() ) {
+    jQuery('#category_main_header').addClass('shown')
+    jQuery('.banner').addClass('hidden0');
+  }
+  this.oldScroll = this.scrollY;
+}
 </script>
 
 @if( is_front_page() )

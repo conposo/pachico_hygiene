@@ -128,7 +128,14 @@ return [];
 // disable the default stylesheet
 add_filter( 'woocommerce_enqueue_styles', '__return_empty_array' );
 
-
+remove_action( 'woocommerce_before_shop_loop', 'woocommerce_catalog_ordering', 30 );
+remove_action( 'woocommerce_before_shop_loop' , 'woocommerce_result_count', 20 );
+remove_action( 'woocommerce_after_shop_loop' , 'woocommerce_result_count', 20 );
+// add_action( 'after_setup_theme', function() { 
+// }, 99 );
+add_action( 'woocommerce_product_query', function($q) {
+    $q->set( 'posts_per_page', -1 );
+});
 
 add_filter( 'excerpt_more', function($link) {
     return ; //'<a class="more-link" href="' . get_permalink() . '">View More Photos!</a>';
@@ -151,4 +158,4 @@ function the_post_thumbnail_caption() {
      } else {
        return;
      }
-   } 
+}

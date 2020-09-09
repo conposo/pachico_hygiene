@@ -16,6 +16,10 @@
           'wrap_before' => '<span class="mx-1 small text-black-50"><i class="fa fa-chevron-right"></i></span>',
           'wrap_after' => '',
           ]) }}
+      @elseif( is_product_category() )
+        @php $category = get_queried_object(); @endphp
+        <span class="small text-black-50"><i class="fa fa-chevron-right"></i></span>
+        <a href="#" class="small text-black-50 text-uppercase" title="You are here. Go to top">{{ $category->name }}</a>
       @elseif( is_single() )
         <a href="{{ get_permalink( get_option( 'page_for_posts' ) ) }}" class="small text-black-50 text-uppercase" title="">Blog</a>
         <span class="small text-black-50"><i class="fa fa-chevron-right"></i></span>
