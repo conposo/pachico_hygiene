@@ -22,33 +22,48 @@ the readme will list any important changes.
     do_action('woocommerce_before_main_content');
   @endphp
 
-  <header class="my-6 text-center woocommerce-products-header">
-    @if(apply_filters('woocommerce_show_page_title', true))
-      <h1 class="woocommerce-products-header__title page-title">{!! woocommerce_page_title(false) !!}</h1>
-    @endif
-
-    @php
-      do_action('woocommerce_archive_description');
-    @endphp
+  <header class="my-6 pt-3 pb-4 text-center woocommerce-products-header" style="">
+    <div class="d-inline-flex flex-column">
+      <div class="header_blue d-inline-flex flex-column mb-1 py-4 px-4 text-white">
+        @if(apply_filters('woocommerce_show_page_title', true))
+          <h1 class="woocommerce-products-header__title page-title m-0">{!! woocommerce_page_title(false) !!}</h1>
+        @endif
+        @php
+          do_action('woocommerce_archive_description');
+        @endphp
+      </div>
+      <div class="header_blue_light d-inline-flex"></div>
+    </div>
   </header>
 
   <!-- print categories -->
 
-  <figure class="mb-0" style="max-height: 450px; overflow: hidden;">
+  <!-- <figure class="mb-0" style="max-height: 450px; overflow: hidden;">
     {!! get_the_post_thumbnail(wc_get_page_id('shop'), 'full', ['class' => 'w-100 h-auto']) !!}
     <caption>
       <span class="small text-uppercase bg-white pl-1 position-absolute" style="top: 0;right: 0;">{!! the_post_thumbnail_caption() !!}</span>
     </caption>
-  </figure>
+  </figure> -->
 
-  @foreach( $categories as $cat )
-  <div class="col">
-    <a href="{{get_term_link($cat->term_id)}}">
-      {{$cat->name}}
-      {{$cat->description}}
-    </a>
+  <div class="d-flex flex-wrap justify-content-between">
+    @foreach( $categories as $cat )
+      @php
+      $thumbnail_id = get_term_meta( $cat->term_id, 'thumbnail_id', true );
+      // get the medium-sized image url
+      $image = wp_get_attachment_image_src( $thumbnail_id, 'medium' );
+      // Output in img tag
+      @endphp
+      <div class="card-category position-relative mb-6" style="background-image: url({{$image[0]}}); background-size: cover; background-position: center;">
+        <a href="{{get_term_link($cat->term_id)}}"
+          class="position-relative d-flex justify-content-start align-items-end p-2 w-100 h-100 text-white">
+          {{$cat->name}}
+          <!-- <span>{{$cat->description}}</span> -->
+        </a>
+        <div class="">
+        </div>
+      </div>
+    @endforeach
   </div>
-  @endforeach
 
   @if(woocommerce_product_loop())
     @php
