@@ -1,8 +1,40 @@
 body.single-product .product {
 
+    header {
+        @extend .mt-n3;
+    }
+
+    h1 {
+        @include media-breakpoint-up(xxl) {
+            font-size: 58px;
+        }
+    }
+
+    p {
+        font-size: 18px;
+    }
+
+    a {
+        &.see_more {
+            text-decoration: none !important;
+            i {
+                transition: all .2s ease-in-out;
+                opacity: 0;
+                margin-left: -10px;
+            }
+            &:hover {
+                i {
+                    opacity: 1;
+                    margin-left: 0;
+                }
+            }
+        }
+    }
 
     figure {
         img {
+            @extend .mt-3;
+            @extend .mb-n6;
             width: 100%;
             height: auto;
         }
@@ -20,5 +52,11 @@ body.single-product .product {
     iframe {
         width: 100%;
         min-height: 250px;
+    }
+
+    form#form_make-inquiry {
+        * {
+            border-radius: 0 !important;
+        }
     }
 }

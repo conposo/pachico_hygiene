@@ -141,6 +141,15 @@ add_filter( 'excerpt_more', function($link) {
     return ; //'<a class="more-link" href="' . get_permalink() . '">View More Photos!</a>';
 });
 
+/**
+ * Change number of related products output
+ */ 
+add_filter( 'woocommerce_output_related_products_args', function ( $args ) {
+    $args['posts_per_page'] = 4; // 3 related products
+    return $args;
+}, 20 );
+
+
 /*
  * Remove excerpt from single product
  */

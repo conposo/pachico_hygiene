@@ -53,3 +53,119 @@ body > div.loading {
         }
     }
 }
+
+
+
+ul.products {
+    @extend .d-flex;
+    @extend .flex-wrap;
+    @extend .justify-content-between;
+    padding-top: 90px !important;
+    @extend .px-5;
+    @extend .pb-5;
+    @extend .shadow-lg;
+    background-color: #fff;
+
+    list-style: none;
+
+    li {
+      position: relative;
+      @extend .mb-6;
+
+      &:hover {
+          h2 {
+              position: relative;
+              z-index: 1;
+              margin-top: calc( -50% + 10px ) !important;
+              font-size: 18px;
+              font-weight: 600;
+          }
+          > a:first-child + img {
+            // opacity: .85;
+          }
+      }
+
+      > a {
+        text-decoration: none !important;
+        &:first-child {
+            + img {
+                display: none;
+                transition: opacity 0.35s ease-in-out;
+                filter: blur(8px);
+                position: absolute;
+                top: 0;
+                left: 0;
+                opacity: 0;
+            }
+        }
+
+        &.pressed img {
+            transition: transform 0.25s ease-in-out;
+            transform: scale(0.98);
+        }
+
+        &.button {
+            display: none;
+        }
+      }
+
+      h2 {
+        transition: all 0.25s ease-in-out;
+        text-align: center;
+        text-transform: uppercase;
+        @extend .mt-2;
+        @extend .small;
+        color: #555;
+      }
+    }
+
+    img {
+      &:hover {
+          // opacity: 0;
+      }
+      + .blurred {
+          top: 0;
+          right: 0;
+          bottom: 0;
+          left: 0;
+          background-color: #fff;
+          opacity: 0;
+          transition: opacity 0.3s ease;
+
+          &:hover {
+              opacity: 1 !important;
+          }
+
+          img {
+              filter: blur(8px);
+              -webkit-filter: blur(8px);
+              opacity: 0.7;
+          }
+          span.product_title {
+              top: 45%;
+              left: 0;
+              height: 0;
+              span {
+                  font-size: 14px;
+                  font-weight: 700;
+                  color: $primary;
+                  text-shadow: 0 0 25px #fff;
+                  + span {
+                      font-size: 20px;
+                      font-weight: 500;
+                  }
+              }
+          }
+      }
+    }
+}
+
+form.search-form * {
+    border-radius: 0 !important;
+
+    input[type=submit] {
+        background-color: #006daf;
+        border-color: #006daf;
+        margin-left: 7px;
+    }
+}

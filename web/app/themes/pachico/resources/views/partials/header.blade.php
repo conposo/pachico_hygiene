@@ -8,14 +8,25 @@
     </span>
   </div>
 @endif
+@if( is_product() )
+  <div id="category_main_header" class="h5 m-0 position-fixed w-100 py-2 text-center text-uppercase text-white">
+    <span>
+      {{ get_the_title() }}
+    </span>
+  </div>
+@endif
 
-<header class="banner {{ is_front_page() ? 'home top position-fixed' : 'position-sticky' }} w-100 py-1 py-lg-3 shadow-lg" style="top:0;">
+<div id="margin-top"></div>
+<header class="banner {{ is_front_page() ? 'home top' : '' }} position-fixed w-100 py-1 py-lg-3 shadow-lg" style="top:0;">
   <div class="container d-flex justify-content-between">
     <a class="brand position-relative" href="{{ home_url('/') }}">
-      <!-- {{ get_bloginfo('name', 'display') }} -->
+      <span class="logo position-absolute d-block w-100"
+        style="background-image: url(@asset('images/logo-pachico.png')); background-position: center; height: 40px;">
+        <!-- {{ get_bloginfo('name', 'display') }} -->
+      </span>
       <img src="@asset('images/logo-pachico.png')" alt="" class="position-absolute w-100">
     </a>
-    <nav id="nav_primary" class="nav-primary local_nav d-none d-lg-flex align-items-center">
+    <nav id="nav_primary" class="nav-primary local_nav d-none d-lg-flex align-items-center mx-auto">
       @if ( is_front_page() && has_nav_menu('home_navigation'))
       {!! wp_nav_menu(['theme_location' => 'home_navigation', 'menu_class' => 'nav', 'container_class' => '', 'items_wrap' => '<ul id="%1$s" class="%2$s d-flex flex-column flex-sm-row">%3$s</ul>']) !!}
         <!-- <div id="wp_nav_menu" class="">
@@ -24,7 +35,7 @@
         {!! wp_nav_menu(['theme_location' => 'primary_navigation', 'menu_class' => 'nav']) !!}
       @endif
     </nav>
-    <div class="d-flex align-items-center">
+    <div class="d-flex justify-content-end align-items-center">
       @if (has_nav_menu('side_navigation'))
         {!! wp_nav_menu(['theme_location' => 'side_navigation', 'menu_class' => 'nav d-flex justify-content-end']) !!}
       @endif
@@ -36,6 +47,10 @@
 <script>
 const $ = jQuery;
 $(document).ready(function() {
+  @if( ! is_front_page() )
+    $('#margin-top').height( $('header.banner').height() );
+  @endif
+
   $('#open_nav_primary, .menu-item').on('click', function() {
     $('#open_nav_primary i').toggleClass('fa-times').toggleClass('fa-bars')
     const classes =  $('#open_nav_primary').attr('class').split(' ')
@@ -52,34 +67,66 @@ $(document).ready(function() {
   })
 
   jQuery('.banner').hover(
-    function(e){
-      e.stopPropagation();
+    function(){
       jQuery('#category_main_header').removeClass('shown')
       jQuery('.banner').removeClass('hidden0');
     },
-    function(e){
-      e.stopPropagation();
+    function(){
     },
   )
 })
 
 
-window.onscroll = function(e) {
-  // print "false" if direction is down and "true" if up
-  console.log(this.oldScroll > this.scrollY);
-  if( this.oldScroll > this.scrollY && this.scrollY < (jQuery('body').height() - jQuery(window).height()) ) {
-    jQuery('#category_main_header').removeClass('shown')
-    jQuery('.banner').removeClass('hidden0');
-  } else if( this.scrollY > jQuery('.woocommerce-products-header').height() ) {
-    jQuery('#category_main_header').addClass('shown')
-    jQuery('.banner').addClass('hidden0');
+
+$(document).ready(function() {
+  window.onscroll = function(e) {
+      console.log(this.oldScroll > this.scrollY);
+      let up = this.oldScroll > this.scrollY;
+      if(up) {
+        console.log('going Up');
+      } else {
+        console.log('going Down');
+      }
+
+      @if( is_product_category() || is_product() )
+        if( up ) {
+          jQuery('a.brand').removeClass('fade_img_show_logo');
+          jQuery('.banner').removeClass('collapse_header');
+          jQuery('#category_main_header').removeClass('shown')
+          jQuery('.banner').removeClass('hidden0');
+        } else if( this.scrollY > jQuery('.woocommerce-products-header').height() ) {
+          jQuery('a.brand').addClass('fade_img_show_logo');
+          jQuery('.banner').addClass('collapse_header');
+          jQuery('#category_main_header').addClass('shown')
+          jQuery('.banner').addClass('hidden0');
+        }
+      @else
+        if( up ) {
+          jQuery('a.brand').removeClass('fade_img_show_logo');
+          jQuery('.banner').removeClass('collapse_header');
+        } else {
+          jQuery('a.brand').addClass('fade_img_show_logo');
+          jQuery('.banner').addClass('collapse_header');
+        }
+      @endif
+      this.oldScroll = this.scrollY;
   }
-  this.oldScroll = this.scrollY;
-}
+});
 </script>
 
 @if( is_front_page() )
-<script>
+  <script>
+    var $_ = jQuery('a.brand img')
+    jQuery($_).clone()
+    .insertAfter('header.banner')
+    .css({
+      position: 'absolute',
+      top: $_.offset().top,
+      left: $_.offset().left,
+      width: $_.width(),
+      height: $_.height(),
+      zIndex: 9999,
+    }).removeClass('w-100');
   $(window).scroll(function() {
     if($(document).scrollTop() > $(window).height()-150) {
       $('.banner').removeClass('top');
@@ -87,5 +134,5 @@ window.onscroll = function(e) {
       $('.banner').addClass('top');
     }
   });
-</script>
+  </script>
 @endif

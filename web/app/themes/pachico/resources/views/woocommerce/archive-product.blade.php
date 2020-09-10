@@ -73,6 +73,23 @@ the readme will list any important changes.
       @endwhile
     @endif
 
+    <script>
+    $(document).ready(function() {
+      $('.products li a').mousedown(function() {
+        $(this).addClass('pressed')
+      })
+      $('.products li a').mouseup(function() {
+        $(this).removeClass('pressed')
+      })
+
+      $('.products li').each(function() {
+        _a = $(this).find('a:first-child')
+        _image = $(this).find('img')
+        _image.clone().insertAfter(_a)
+      });
+    });
+    </script>
+
     @php
       woocommerce_product_loop_end();
       do_action('woocommerce_after_shop_loop');
@@ -83,7 +100,6 @@ the readme will list any important changes.
     @endphp
   @endif
 
-  @if( true || is_shop() )
   <div class="mt-6 d-flex flex-wrap justify-content-between">
     @foreach( $categories as $cat )
       @php
@@ -112,10 +128,6 @@ the readme will list any important changes.
         </div>
       </div>
     @endforeach
-  </div>
-  @endif
-
-  <div class="d-none">
   </div>
 
   @php

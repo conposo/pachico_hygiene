@@ -1,7 +1,7 @@
 <!-- Modal -->
 <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog modal-lg" role="document">
-    <div class="modal-content rounded-0 bg-white">
+    <div class="modal-content border-0 rounded-0 bg-white">
       <div class="modal-header rounded-0" style="background-color: #006daf;">
         <h5 class="modal-title text-white" id="exampleModalLabel">Търсете в сайта</h5>
         <button type="button" class="close text-white" data-dismiss="modal" aria-label="Close">

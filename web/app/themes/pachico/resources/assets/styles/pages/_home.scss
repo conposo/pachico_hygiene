@@ -2,7 +2,6 @@ body.home {
 
     .banner {
         &.home {
-            transition: opacity 0.3s ease;
             &.top {
                 opacity: 0;
             }
@@ -153,6 +152,17 @@ body.home {
         @include media-breakpoint-up(md) {
             min-height: 100vh;
         }
+
+        .button-group {
+            button {
+                color: #555;
+                font-weight: 400;
+                font-size: 16px;
+                background-color: #fff;
+                border: none;
+            }
+        }
+
         .products {
         
             .grid-item {

@@ -47,9 +47,6 @@
         @if (has_nav_menu('contacts_navigation'))
           {!! wp_nav_menu(['theme_location' => 'contacts_navigation', 'menu_class' => '_border-bottom mb-2']) !!}
         @endif
-        @if (has_nav_menu('social_links'))
-          {!! wp_nav_menu(['theme_location' => 'social_links', 'menu_class' => 'd-flex']) !!}
-        @endif
       </div>
     </div>
   </div>
@@ -66,7 +63,11 @@
         <a class="mx-1" href="#">Sitemap</a>
       </div>
       <div class="language_switcher">
-        <i class="fa fa-flag"></i>
+        <!-- <i class="fa fa-flag"></i> -->
+
+        @if (has_nav_menu('social_links'))
+          {!! wp_nav_menu(['theme_location' => 'social_links', 'menu_class' => 'd-flex']) !!}
+        @endif
       </div>
     </div>
   </div>

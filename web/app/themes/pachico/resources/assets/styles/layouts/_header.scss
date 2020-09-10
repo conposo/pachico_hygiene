@@ -10,20 +10,38 @@ $bg-header: #006daf;
 
 header.banner {
   $side_are_width: 150px;
-
   top: 0;
   z-index: 2;
-
   background-color: $bg-header;
-
-  transition: padding 0.450s ease-in-out;
-
+  
+  transition: padding 0.450s ease-in-out, opacity 0.3s ease;
   #nav_primary {
     transition: opacity 0.550s ease;
+    a {
+      position: relative;
+    }
+    a:after {
+      opacity: 0;
+      content: '';
+      position: absolute;
+      bottom: -15px;
+      left: 15px;
+      width: calc(100% - 30px);
+      border-bottom: 2px solid #fff;
+      transition: all .250s ease;
+    }
+    a:hover {
+      &:after {
+        transition: all .250s ease;
+        opacity: 1;
+        bottom: 5px;
+      }
+    }
   }
-
-  &.hidden0 {
+  &.collapse_header {
     padding: 10px 0 10px !important;
+  }
+  &.hidden0 {
     #nav_primary {
       opacity: 0;
     }
@@ -41,6 +59,20 @@ header.banner {
       width: ( $side_are_width/15 ) * 10;
       @include media-breakpoint-up(md) {
         width: $side_are_width;
+      }
+      * {
+        transition: opacity 0.550s ease;
+      }
+      span.logo {
+        opacity: 0;
+      }
+      &.fade_img_show_logo {
+        span.logo {
+          opacity: 1;
+        }
+        img {
+          opacity: 0;
+        }
       }
       img {
 
@@ -76,6 +108,7 @@ header.banner {
   left: 0;
   z-index: 9;
   transition: all .450s ease-in-out;
+
   &.shown {
     top: 3px;
   }
