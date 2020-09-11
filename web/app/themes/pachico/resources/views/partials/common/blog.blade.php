@@ -17,8 +17,8 @@
                     <!-- <p class="position-absolute w-100 py-2 text-center bg-white">
                         <span class="text-primary text-uppercase small">see more ></span>
                     </p> -->
-                    <p class="position-absolute w-100 py-2 text-center bg-white">
-                        <span class="text-dark text-uppercase small"><?php echo $post['post_title'] ?></span>
+                    <p class="position-absolute w-100 px-1 py-1 py-sm-2 text-center bg-white">
+                        <span class="text-dark text-uppercase"><?php echo $post['post_title'] ?></span>
                     </p>
                 </a>
             </div>

@@ -84,11 +84,11 @@ if ( post_password_required() ) {
 					@endforeach
 					</div>
 				@else
-					no pictograms
+					<!-- no pictograms -->
 				@endif
 			</div>
-			<div id="cta_make_inquiry" class="local_nav">
-				<a href="#make_inquiry" class="w-100 btn btn-sm btn-outline-dark text-uppercase">make inquiry</a>
+			<div id="cta_make_inquiry" class="local_nav position-relative">
+				<a href="#make_inquiry" class="position-absolute w-100 btn btn-sm btn-outline-dark text-uppercase rounded-0">направи запитване</a>
 			</div>
 		</div>
 	</div>
@@ -186,9 +186,10 @@ if ( post_password_required() ) {
 	</div>
 
 
-	<div class="shadow-lg my-3 my-sm-6 px-1 p-sm-3" id="make_inquiry">
-		<h3 class="text-uppercase small">make an inquiry</h3>
+	<div id="make_inquiry" class="position-relative shadow-lg my-3 px-1 pt-sm-5 px-sm-3">
+		<h3 class="position-absolute w-100 py-1 px-2 text-uppercase small" style="border-bottom: 1px solid #bfc3c8;">make an inquiry</h3>
 		{!! do_shortcode('[formidable id=2]') !!}
+		<img src="@asset('images/logo-pachico.png')" class="position-absolute">
 	</div>
 
 	<script>

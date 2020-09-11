@@ -1,0 +1,25 @@
+
+form.search-form {
+
+    label,
+    input {
+        margin: 0 !important;
+        @extend .border-0;
+        // @extend .shadow;
+    }
+
+    * {
+        border-radius: 0 !important;
+    }
+    
+    input.search-submit {
+        background-color: #006daf;
+        border-color: #006daf;
+        margin-right: 7px;
+    }
+
+    button.close {
+        opacity: 1 !important;
+    }
+
+}

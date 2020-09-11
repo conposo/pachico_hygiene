@@ -3,7 +3,7 @@
 // dd( $hero );
 
 ?>
-<div class="hero d-flex flex-column mb-5">
+<div class="hero d-flex flex-column mb-6 mb-sm-5">
     
     <div class="carousel-images w-auto">
         <?php

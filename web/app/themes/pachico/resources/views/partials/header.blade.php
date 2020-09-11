@@ -116,17 +116,17 @@ $(document).ready(function() {
 
 @if( is_front_page() )
   <script>
-    var $_ = jQuery('a.brand img')
-    jQuery($_).clone()
-    .insertAfter('header.banner')
-    .css({
-      position: 'absolute',
-      top: $_.offset().top,
-      left: $_.offset().left,
-      width: $_.width(),
-      height: $_.height(),
-      zIndex: 9999,
-    }).removeClass('w-100');
+    // var $_ = jQuery('a.brand img')
+    // jQuery($_).clone()
+    // .insertAfter('header.banner')
+    // .css({
+    //   position: 'absolute',
+    //   top: $_.offset().top,
+    //   left: $_.offset().left,
+    //   width: $_.width(),
+    //   height: $_.height(),
+    //   zIndex: 9999,
+    // }).removeClass('w-100');
   $(window).scroll(function() {
     if($(document).scrollTop() > $(window).height()-150) {
       $('.banner').removeClass('top');

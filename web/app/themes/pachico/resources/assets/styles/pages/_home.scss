@@ -18,7 +18,7 @@ body.home {
         }
     
         h1 {
-            font-size: 32px;
+            font-size: 52px;
             font-weight: 600;
             text-shadow: 2px 2px 10px rgba(0, 0, 0, .2);
             color: white;
@@ -52,17 +52,13 @@ body.home {
             }
     
             &.bounce {
-                -webkit-animation-name: bounce;
                 animation-name: bounce;
+                animation: bounce 2s infinite;
                 
                 -webkit-border-radius: 50%;
                 -moz-border-radius: 50%;
                 -ms-border-radius: 50%;
                 border-radius: 50%;
-                animation: bounce 2s infinite;
-                -webkit-animation: bounce 2s infinite;
-                -moz-animation: bounce 2s infinite;
-                -o-animation: bounce 2s infinite;
             }
         }
     
@@ -112,6 +108,9 @@ body.home {
     // ABOUT START
     #about {
         min-height: 100vh;
+        p {
+            font-size: 18px;
+        }
         .about {
             figure {
                 background: #e8e8e8;

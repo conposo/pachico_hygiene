@@ -14,23 +14,6 @@ body.single-product .product {
         font-size: 18px;
     }
 
-    a {
-        &.see_more {
-            text-decoration: none !important;
-            i {
-                transition: all .2s ease-in-out;
-                opacity: 0;
-                margin-left: -10px;
-            }
-            &:hover {
-                i {
-                    opacity: 1;
-                    margin-left: 0;
-                }
-            }
-        }
-    }
-
     figure {
         img {
             @extend .mt-3;
@@ -42,6 +25,16 @@ body.single-product .product {
 
     #cta_make_inquiry {
         a {
+            top: 0;
+            left: 0;
+            transition: all .2s ease-in-out;
+
+            &:hover {
+                top: -6px;
+                padding: 10px 0;
+                background-color: #fff;
+                color: #333;
+            }
 
             @include media-breakpoint-down(md) {
                 width: 100%;
@@ -54,9 +47,92 @@ body.single-product .product {
         min-height: 250px;
     }
 
-    form#form_make-inquiry {
-        * {
-            border-radius: 0 !important;
+    #make_inquiry {
+        @extend .pb-6;
+
+        h3 {
+            top: 0;
+            left: 0;
+            background-color: #006daf;
+            color: #FFF;
+        }
+
+        form#form_make-inquiry {
+            * {
+                border-radius: 0 !important;
+                box-shadow: none;
+            }
+
+            input {
+                border-top: none;
+                border-right: none;
+                border-bottom: 1px solid #bfc3c8;
+                border-left: none;
+
+                &:focus {
+                    background-color: #bfc3c82e;
+                }
+            }
+
+            textarea {
+                &:focus {
+                    background-color: #bfc3c82e;
+                }
+            }
+
+            button[type='submit'] {
+                background-color: $brand-primary;
+            }
+        }
+
+        div#frm_field_10_container { // textarea
+            margin-bottom: $spacer * 1.5;
+        }
+
+        div#frm_field_13_container {
+            position: absolute;
+            bottom: 40px;
+            left: 200px;
+            margin: 0;
+
+            > div + div {
+                @extend .d-flex;
+                > div {
+                    margin-right: 20px;
+                    * {
+                        margin-bottom: 0;
+                        text-transform: uppercase;
+                        font-weight: 600;
+                    }
+                }
+            }
+        }
+
+        div.frm_submit {
+            position: absolute;
+            bottom: 30px;
+            left: 23px;
+            width: 150px;
+            button {
+                position: absolute;
+                bottom: 0;
+                left: 0;
+                width: 100%;
+                transition: all .2s ease-in-out;
+                &:hover {
+                    bottom: -6px;
+                    padding: 15px 0;
+                    font-size: 16px;
+                    color: #fff;
+                }
+            }
+        }
+
+        img {
+            display: none;
+            right: $spacer * 1.25;
+            bottom: 10px;
+            width: 70px;
         }
     }
 }
