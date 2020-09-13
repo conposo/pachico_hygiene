@@ -1,32 +1,5 @@
 body.archive {
 
-    .header_blue,
-    .header_blue_light {
-      min-width: 450px;
-      max-width: 750px;
-      box-shadow: 0 3px 45px rgba(0, 0, 0, .15);
-    }
-
-    .header_blue_light {
-      margin-top: 2px;
-      min-height: 5px;
-      background-color: #00AEEE;
-    }
-
-    .header_blue {
-      min-width: 350px;
-      background-color: #006daf;
-      text-shadow: 0 3px 6px rgba(0, 0, 0, .15);
-      p {
-        font-size: 18px;
-      }
-      h1 {
-        font-size: 50px;
-        line-height: 1.1em;
-        font-weight: 700;
-      }
-    }
-
     #categpry_header {
       top: 0;
       left: 0;

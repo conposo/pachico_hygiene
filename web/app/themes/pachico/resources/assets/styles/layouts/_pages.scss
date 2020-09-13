@@ -28,4 +28,34 @@ body {
             }
         }
     }
+
+    &.template-aboutus {
+        h1.blue-border-bottom {
+            position: relative;
+            @include media-breakpoint-up(sm) {
+                padding-left: 90px;
+            }
+            &:before {
+                content: '';
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 15px;
+                width: 130px;
+                height: 70px;
+                background-image: url('../images/Logotype_PaChiko.png');
+                background-repeat: no-repeat;
+                background-size: contain;
+                background-position: left center;
+                @include media-breakpoint-up(sm) {
+                    display: block;
+                }
+            }
+            + div {
+                @include media-breakpoint-up(sm) {
+                    padding-left: 90px;
+                }
+            }
+        }
+    }
 }

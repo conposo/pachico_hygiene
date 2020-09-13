@@ -17,7 +17,8 @@ body.single-product .product {
     figure {
         img {
             @extend .mt-3;
-            @extend .mb-n6;
+            @extend .mb-3;
+            @extend .mb-sm-n6;
             width: 100%;
             height: auto;
         }
@@ -91,9 +92,13 @@ body.single-product .product {
 
         div#frm_field_13_container {
             position: absolute;
-            bottom: 40px;
+            bottom: 15px;
             left: 200px;
             margin: 0;
+            
+            @include media-breakpoint-up(sm) {
+                bottom: 40px;
+            }
 
             > div + div {
                 @extend .d-flex;
@@ -120,9 +125,8 @@ body.single-product .product {
                 width: 100%;
                 transition: all .2s ease-in-out;
                 &:hover {
-                    bottom: -6px;
+                    bottom: -5px;
                     padding: 15px 0;
-                    font-size: 16px;
                     color: #fff;
                 }
             }

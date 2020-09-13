@@ -56,7 +56,7 @@ if ( post_password_required() ) {
 
 		<div class="summary entry-summary col-12 col-sm-6 d-flex flex-column justify-content-between">
 			<div class="d-flex flex-column flex-fill justify-content-between">
-				<div class="local_nav d-flex flex-column flex-fill justify-content-center">
+				<div class="local_nav d-flex flex-column flex-fill justify-content-center mb-3 mb-sm-0">
 					<?php
 					/**
 					 * Hook: woocommerce_single_product_summary.
@@ -72,13 +72,13 @@ if ( post_password_required() ) {
 					 */
 					do_action( 'woocommerce_single_product_summary' );
 					?>
-					<a href="#see_more" class="see_more d-inline text-dark">
-						See more
+					<a href="#see_more" class="see_more">
+						виж повече
 						<i class="fas fa-chevron-right"></i>
 					</a>
 				</div>
 				@if($pictograms)
-					<div class="d-flex mb-3">
+					<div class="d-flex mb-3 p-1">
 					@foreach($pictograms as $pictogram)
 						<div class="mr-2" style="width:25px;">{!! $pictogram !!}</div>
 					@endforeach
@@ -102,11 +102,13 @@ if ( post_password_required() ) {
 				</div>
 				@if($files)
 					<div class="">
+					<spam class="d-block text-uppercase small">
+					изтегли файлове
+					</spam>
 					@foreach($files as $file)
 						@php
 						$file = $file['file'];
 						@endphp
-						<!-- {{ var_dump($file) }} -->
 						@if($file['mime_type'] == "application/pdf")
 							<a href="{{ $file['url'] }}" download="{{ $file['title'] }}">{{ $file['title'] }}</a>
 						@endif
@@ -175,7 +177,7 @@ if ( post_password_required() ) {
 							@endforeach
 							</div>
 						@else
-							no pictograms
+							<!-- no pictograms -->
 						@endif
 						</div>	
 					</div>
@@ -186,8 +188,8 @@ if ( post_password_required() ) {
 	</div>
 
 
-	<div id="make_inquiry" class="position-relative shadow-lg my-3 px-1 pt-sm-5 px-sm-3">
-		<h3 class="position-absolute w-100 py-1 px-2 text-uppercase small" style="border-bottom: 1px solid #bfc3c8;">make an inquiry</h3>
+	<div id="make_inquiry" class="position-relative shadow-lg my-3 px-1 pt-5 px-sm-3">
+		<h3 class="position-absolute w-100 py-1 px-2 text-uppercase small" style="border-bottom: 1px solid #bfc3c8;">направи запитване</h3>
 		{!! do_shortcode('[formidable id=2]') !!}
 		<img src="@asset('images/logo-pachico.png')" class="position-absolute">
 	</div>

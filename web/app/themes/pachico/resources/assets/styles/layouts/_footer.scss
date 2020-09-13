@@ -3,7 +3,10 @@ footer.content-info {
 
     a {
         &.brand {
-            width: 50px;
+            width: 105px;
+            @include media-breakpoint-up(sm) {
+                width: 50px;
+            }
         }
     }
 

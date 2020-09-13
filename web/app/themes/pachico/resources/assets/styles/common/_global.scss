@@ -1,13 +1,24 @@
 
 a {
     &.see_more {
+        @extend .p-1;
+        border: 1px solid $brand-primary;
         text-decoration: none !important;
         text-transform: uppercase;
         font-weight: 500;
+        
+        display: inline-flex;
+        white-space: nowrap;
+        align-items: center;
+        justify-content: center;
 
         @include media-breakpoint-down(sm) {
             font-size: 80%;
         }
+        @include media-breakpoint-up(sm) {
+            width: min-content;
+        }
+        
         i {
             transition: all .2s ease-in-out;
             // opacity: 0;
@@ -22,6 +33,36 @@ a {
             }
         }
     }
+}
+
+.blue-border-bottom {
+    border-top: 3px solid #006daf;
+}
+
+.header_blue,
+.header_blue_light {
+  min-width: 350px;
+  max-width: 750px;
+  box-shadow: 0 3px 45px rgba(0, 0, 0, .15);
+}
+
+.header_blue_light {
+  margin-top: 2px;
+  min-height: 5px;
+  background-color: #00AEEE;
+}
+
+.header_blue {
+  background-color: #006daf;
+  text-shadow: 0 3px 6px rgba(0, 0, 0, .15);
+  p {
+    font-size: 18px;
+  }
+  h1 {
+    font-size: 50px;
+    line-height: 1.1em;
+    font-weight: 700;
+  }
 }
 
 body > div.loading {
@@ -91,7 +132,6 @@ ul.products {
     @extend .justify-content-between;
     padding-top: 90px !important;
     @extend .px-5;
-    @extend .pb-5;
     @extend .shadow-lg;
     background-color: #fff;
 
@@ -101,16 +141,23 @@ ul.products {
       position: relative;
       @extend .mb-6;
 
+      h2 {
+        position: absolute;
+        bottom: -45px;
+        left: 0;
+        width: 100%;
+      }
       &:hover {
           h2 {
-              position: relative;
               z-index: 1;
-              margin-top: calc( -50% + 10px ) !important;
+              bottom: calc( 50% - 30px ) !important;
+              max-width: 100%;
               font-size: 18px;
               font-weight: 600;
+              white-space: nowrap;
           }
           > a:first-child + img {
-            // opacity: .85;
+            opacity: .85;
           }
       }
 
@@ -118,7 +165,7 @@ ul.products {
         text-decoration: none !important;
         &:first-child {
             + img {
-                display: none;
+                // display: none;
                 transition: opacity 0.35s ease-in-out;
                 filter: blur(8px);
                 position: absolute;
@@ -142,7 +189,6 @@ ul.products {
         transition: all 0.25s ease-in-out;
         text-align: center;
         text-transform: uppercase;
-        @extend .mt-2;
         @extend .small;
         color: #555;
       }

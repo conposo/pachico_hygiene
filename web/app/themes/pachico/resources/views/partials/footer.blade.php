@@ -52,19 +52,19 @@
   </div>
 
   <div class="container">
-    <div class="d-flex justify-content-between py-1 small border-top">
-      <div class="d-flex">
-        <p class="m-0">Copyright © 2020 PaChico Inc. All rights reserved.</p>
-        /
-        <a class="mx-1" href="#">Terms & Conditions</a>
-        /
-        <a class="mx-1" href="#">Privacy policy</a>
-        /
-        <a class="mx-1" href="#">Sitemap</a>
+    <div class="d-flex flex-column flex-sm-row justify-content-between py-1 small border-top">
+      <div class="d-flex flex-column flex-sm-row mb-2 mb-sm-0">
+        <p class="m-sm-0">Copyright © 2020 PaChico Inc. All rights reserved.</p>
+        <div>
+          <span class="d-none d-sm-inline">|</span>
+          <a class="mr-1" href="#">Terms & Conditions</a>
+          |
+          <a class="mr-1" href="#">Privacy policy</a>
+          |
+          <a class="mr-1" href="#">Sitemap</a>
+        </div>
       </div>
       <div class="language_switcher">
-        <!-- <i class="fa fa-flag"></i> -->
-
         @if (has_nav_menu('social_links'))
           {!! wp_nav_menu(['theme_location' => 'social_links', 'menu_class' => 'd-flex']) !!}
         @endif
