@@ -15,26 +15,28 @@
 
     <div class="grid products d-flex">
         @foreach($product_groups as $group)
-            @foreach($group['items'] as $item)
-            @php
-            $product_image_id = $item['product'];
-            //dd($product_image_id);
-            @endphp
-            <div class="grid-item {{ str_replace(' ', '', $group['label']) }} mb-2 px-1 px-lg-3">
-                <a href="{!! get_permalink($product_image_id) !!}" class="position-relative d-block">
-                    <div class="position-relative">
-                        {!! get_the_post_thumbnail($product_image_id, 'thumbnail', ['class' => 'w-100 h-auto']) !!}
-                        <div class="blurred position-absolute">
+            @if( $group['items'] )
+                @foreach($group['items'] as $item)
+                @php
+                $product_image_id = $item['product'];
+                //dd($product_image_id);
+                @endphp
+                <div class="grid-item {{ str_replace(' ', '', $group['label']) }} mb-2 px-1 px-lg-3">
+                    <a href="{!! get_permalink($product_image_id) !!}" class="position-relative d-block">
+                        <div class="position-relative">
                             {!! get_the_post_thumbnail($product_image_id, 'thumbnail', ['class' => 'w-100 h-auto']) !!}
-                            <span class="product_title position-absolute w-100 text-center">
-                                <span class="d-block text-uppercase small">{{ $group['label'] }}</span>
-                                <span class="text-dark">{!! get_the_title($product_image_id) !!}</span>
-                            </span>
+                            <div class="blurred position-absolute">
+                                {!! get_the_post_thumbnail($product_image_id, 'thumbnail', ['class' => 'w-100 h-auto']) !!}
+                                <span class="product_title position-absolute w-100 text-center">
+                                    <span class="d-block text-uppercase small">{{ $group['label'] }}</span>
+                                    <span class="text-dark">{!! get_the_title($product_image_id) !!}</span>
+                                </span>
+                            </div>
                         </div>
-                    </div>
-                </a>
-            </div>
-            @endforeach
+                    </a>
+                </div>
+                @endforeach
+            @endif
         @endforeach
     </div>
 
