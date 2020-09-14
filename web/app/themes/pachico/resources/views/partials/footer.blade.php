@@ -7,7 +7,7 @@
 
   <div class="container d-flex mb-3">
     <a class="brand mt-n1 mr-1 d-inline-block" href="{{ home_url('/') }}">
-      <img src="@asset('images/logo-pachico.png')" alt="" class="w-100">
+      <img src="@asset('images/Logotype_PaChiko.png')" alt="" class="w-100">
     </a>
     <div class="my-1">
       @if( is_product() )
