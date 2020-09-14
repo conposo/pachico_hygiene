@@ -71,11 +71,8 @@ if ( post_password_required() ) {
 					 * @hooked WC_Structured_Data::generate_product_data() - 60
 					 */
 					do_action( 'woocommerce_single_product_summary' );
+					// <a href="#see_more" class="see_more"> виж повече <i class="fas fa-chevron-right"></i> </a>
 					?>
-					<a href="#see_more" class="see_more">
-						виж повече
-						<i class="fas fa-chevron-right"></i>
-					</a>
 				</div>
 				@if($pictograms)
 					<div class="d-flex mb-3 p-1">
@@ -127,24 +124,24 @@ if ( post_password_required() ) {
 					<div class="d-flex justify-content-between align-items-center cursor-pointer text-uppercase small text-black" id="collapse_one"
 						onclick="jQuery('#accordionExample i').addClass('fa-plus'); jQuery('#collapse_one').find('i').removeClass('fa-plus').addClass('fa-minus')"
 						data-toggle="collapse" data-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
-						<span class="">Application and recommendations</span>
+						<span class="">Приложение и препоръки</span>
 						<i class="fa fa-minus"></i>
 					</div>
 					<div id="collapseOne" class="collapse show" data-parent="#accordionExample">
 						<div class="bg-light shadow-sm my-2 p-1">
-							<span class="mb-1 d-block text-dark font-weight-bold text-uppercase small">application</span>
+							<span class="mb-1 d-block text-dark font-weight-bold text-uppercase small">Приложение на продукта:</span>
 							{!! $product_description['application'] !!}
 						</div>
 						<div class="bg-light shadow-sm my-2 p-1">
-							<span class="mb-1 d-block text-dark font-weight-bold text-uppercase small">recommendations</span>
+							<span class="mb-1 d-block text-dark font-weight-bold text-uppercase small">Препоръки за употреба:</span>
 							{!! $product_description['recommendations'] !!}
 						</div>
 						<div class="bg-light shadow-sm my-2 p-1">
-							<span class="mb-1 d-block text-dark font-weight-bold text-uppercase small">suitable for</span>
+							<span class="mb-1 d-block text-dark font-weight-bold text-uppercase small">Подходящ за:</span>
 							{!! $product_description['suitable_for'] !!}
 						</div>
 						<div class="bg-light shadow-sm my-2 p-1">
-							<span class="mb-1 d-block text-dark font-weight-bold text-uppercase small">packages</span>
+							<span class="mb-1 d-block text-dark font-weight-bold text-uppercase small">Разфасовки:</span>
 							{!! $product_description['packages'] !!}
 						</div>
 					</div>
@@ -153,20 +150,20 @@ if ( post_password_required() ) {
 					<div class="d-flex justify-content-between align-items-center cursor-pointer text-uppercase small text-black" id="collapse_two"
 					onclick="jQuery('#accordionExample i').addClass('fa-plus'); jQuery('#collapse_two').find('i').removeClass('fa-plus').addClass('fa-minus')"
 					data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-						<span class="">Technical data</span>
+						<span class="">Технически данни</span>
 						<i class="fa fa-plus"></i>
 					</div>
 					<div id="collapseTwo" class="collapse" data-parent="#accordionExample">
 						<div class="bg-light shadow-sm my-2 p-1">
-							<span class="mb-1 d-block text-dark font-weight-bold text-uppercase small">technical characteristics</span>
+							<span class="mb-1 d-block text-dark font-weight-bold text-uppercase small">Технически характеристики:</span>
 							{!! $product_description['technical_characteristics'] !!}
 						</div>
 						<div class="bg-light shadow-sm my-2 p-1">
-							<span class="mb-1 d-block text-dark font-weight-bold text-uppercase small">safety</span>
+							<span class="mb-1 d-block text-dark font-weight-bold text-uppercase small">Препоръки за безопасност:</span>
 							{!! $product_description['safety_recommendations'] !!}
 						</div>
 						<div class="bg-light shadow-sm my-2 p-1">
-							<span class="mb-1 d-block text-dark font-weight-bold text-uppercase small">expiry_date</span>
+							<span class="mb-1 d-block text-dark font-weight-bold text-uppercase small">Срок на годност:</span>
 							{!! $product_description['expiry_date'] !!}
 						</div>
 						<div class="">

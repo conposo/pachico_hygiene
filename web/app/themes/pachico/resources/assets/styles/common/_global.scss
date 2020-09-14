@@ -37,6 +37,10 @@ a {
 
 .blue-border-bottom {
     border-top: 3px solid #006daf;
+    @include media-breakpoint-up(sm) {
+        border-top-width: 0;
+        border-bottom: 3px solid #006daf;
+    }
 }
 
 .header_blue,

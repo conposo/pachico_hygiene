@@ -64,7 +64,7 @@ header.banner {
         transition: opacity 0.550s ease;
       }
       span.logo {
-        // opacity: 0;
+        opacity: 0;
       }
       &.fade_img_show_logo {
         span.logo {
@@ -75,7 +75,7 @@ header.banner {
         }
       }
       img {
-display: none;
+// display: none;
       }
     }
   }

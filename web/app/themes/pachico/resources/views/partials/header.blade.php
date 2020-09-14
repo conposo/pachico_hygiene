@@ -21,12 +21,11 @@
 <header class="banner {{ is_front_page() ? 'home top' : '' }} position-fixed w-100 py-1 py-lg-3 shadow-lg" style="top:0;">
   <div class="container d-flex justify-content-between">
     <a class="brand position-relative" href="{{ home_url('/') }}">
-      <span class="logo d-block w-100"
-        style="background-image: url(@asset('images/logotype.png')); background-position: center; background-size: 100% auto; background-repeat: no-repeat; height: 40px;">
-        <!-- {{ get_bloginfo('name', 'display') }} -->
+      <span class="logo position-absolute d-block w-100"
+        style="top:0; left:0; background-image: url(@asset('images/logotype.png')); background-position: center; background-size: 100% auto; background-repeat: no-repeat; height: 40px;">
       </span>
-      <img src="@asset('images/logotype.png')" alt="" class="position-absolute w-100">
-      <!-- <img src="@asset('images/Logotype_PaChiko.png')" alt="" class="position-absolute w-100"> -->
+      <!-- <img src="@asset('images/logotype.png')" alt="" class="position-absolute w-100"> -->
+      <img src="@asset('images/Logotype_PaChiko.png')" alt="" class="position-absolute w-100">
     </a>
     <nav id="nav_primary" class="nav-primary local_nav d-none d-lg-flex align-items-center mx-auto">
       @if ( is_front_page() && has_nav_menu('home_navigation'))
@@ -82,7 +81,7 @@ $(document).ready(function() {
 
 $(document).ready(function() {
   window.onscroll = function(e) {
-      console.log(this.oldScroll > this.scrollY);
+      // console.log(this.oldScroll > this.scrollY);
       let up = this.oldScroll > this.scrollY;
       if(up) {
         console.log('going Up');

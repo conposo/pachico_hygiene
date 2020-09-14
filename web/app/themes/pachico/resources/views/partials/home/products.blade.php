@@ -7,7 +7,7 @@
 <section id="products" class="container d-flex flex-column justify-content-center mb-5">
 
     <div class="button-group filter-button-group d-flex justify-content-between justify-content-sm-center mb-6">
-        <button class="d-inline-block shadow py-1 px-1 px-sm-2 text-uppercase" data-filter="*">show all</button>
+        <button class="d-inline-block shadow py-1 px-1 px-sm-2 text-uppercase" data-filter="*">всички</button>
         @foreach($product_groups as $group)
             <button class="ml-2 d-inline-block shadow py-sm-1 px-1 px-sm-2 text-uppercase" data-filter=".{{ str_replace(' ', '', $group['label']) }}">{{ $group['label'] }}</button>
         @endforeach
@@ -44,6 +44,11 @@
 </style>
 
 <script>
+
+$(document).ready(function() {
+    jQuery('.filter-button-group > button:nth-child(2)').addClass('focus')
+});
+
     var $grid = jQuery('.grid').isotope({
         // options
         filter: '.HORECA',
@@ -53,6 +58,8 @@
 
     // filter items on button click
     jQuery('.filter-button-group').on( 'click', 'button', function() {
+        jQuery('.filter-button-group > button').removeClass('focus')
+        jQuery(this).addClass('focus')
         var filterValue = jQuery(this).attr('data-filter');
         $grid.isotope({ filter: filterValue });
     });

@@ -5,8 +5,17 @@ body.single-product .product {
     }
 
     h1 {
+        color: $brand-primary;
+        font-weight: 700;
+        text-shadow: 1px 3px 10px rgba(0, 0, 0, .05);
+
         @include media-breakpoint-up(xxl) {
             font-size: 58px;
+        }
+
+        + p {
+            font-size: 20px;
+            text-transform: uppercase;
         }
     }
 
@@ -50,7 +59,12 @@ body.single-product .product {
 
     #make_inquiry {
         @extend .pb-6;
-
+        
+        @include media-breakpoint-up(sm) {
+            width: 70%;
+            margin: auto;
+        }
+        
         h3 {
             top: 0;
             left: 0;
@@ -137,6 +151,14 @@ body.single-product .product {
             right: $spacer * 1.25;
             bottom: 10px;
             width: 70px;
+        }
+    }
+
+    .related.products {
+        h2 {
+            @extend .small;
+            text-transform: uppercase;
+            
         }
     }
 }

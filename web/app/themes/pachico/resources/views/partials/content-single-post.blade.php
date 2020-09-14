@@ -11,9 +11,6 @@
         <div class="row">
           <div class="col-10 col-sm-8 mx-auto">
             <h1 class="entry-title">{!! get_the_title() !!}</h1>
-            <div class="position-absolute" style="top: 10px; right: 0px;">
-            {!! do_shortcode('[addtoany]') !!}
-            </div>
           </div>
         </div>
       </div>
@@ -38,6 +35,7 @@
     </div>
   </div>
   <footer class="container">
+    @if ( is_plugin_active( 'add-to-any/add-to-any.php' ) )
     <div class="position-fixed" style="z-index:9; top: 115px; top: calc( 50% - 72px ); right: 30px; filter: grayscale(50%);">
       {!! do_shortcode('[addtoany]') !!}
     </div>
@@ -47,6 +45,7 @@
         flex-direction: column;
       }
     </style>
+    @endif
     {!! wp_link_pages(['echo' => 0, 'before' => '<nav class="page-nav"><p>' . __('Pages:', 'sage'), 'after' => '</p></nav>']) !!}
   </footer>
   <!-- @ php comments_template('/partials/comments.blade.php') @ endphp -->

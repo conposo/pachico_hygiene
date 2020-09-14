@@ -2,7 +2,7 @@
 <aside>
 
     <div class="container">
-        <h2 class="text-uppercase small">Recent Posts</h2>
+        <h2 class="text-uppercase small">последни публикации</h2>
     </div>
     <div id="recent_posts_slider" class="d-flex flex-wrap">
         <?php
