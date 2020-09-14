@@ -22,7 +22,7 @@
   <div class="container d-flex justify-content-between">
     <a class="brand position-relative" href="{{ home_url('/') }}">
       <span class="logo position-absolute d-block w-100"
-        style="top:0; left:0; background-image: url(@asset('images/logotype.png')); background-position: center; background-size: 100% auto; background-repeat: no-repeat; height: 40px;">
+        style="top:0; left:0; background-image: url(@asset('images/Logotype.png')); background-position: center; background-size: 100% auto; background-repeat: no-repeat; height: 40px;">
       </span>
       <!-- <img src="@asset('images/logotype.png')" alt="" class="position-absolute w-100"> -->
       <img src="@asset('images/Logotype_PaChiko.png')" alt="" class="position-absolute w-100">
