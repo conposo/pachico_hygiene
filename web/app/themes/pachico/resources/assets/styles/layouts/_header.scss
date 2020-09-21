@@ -60,22 +60,22 @@ header.banner {
       @include media-breakpoint-up(md) {
         width: $side_are_width;
       }
-      * {
-        transition: opacity 0.550s ease;
-      }
-      span.logo {
-        opacity: 0;
-      }
-      &.fade_img_show_logo {
-        span.logo {
-          opacity: 1;
-        }
-        img {
-          opacity: 0;
-        }
-      }
+      // * {
+      //   transition: opacity 0.550s ease;
+      // }
+      // span.logo {
+      //   opacity: 0;
+      // }
+      // &.fade_img_show_logo {
+      //   span.logo {
+      //     opacity: 1;
+      //   }
+      //   img {
+      //     opacity: 0;
+      //   }
+      // }
       img {
-// display: none;
+display: none;
       }
     }
   }

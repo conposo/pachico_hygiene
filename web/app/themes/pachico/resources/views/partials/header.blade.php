@@ -25,7 +25,7 @@
         style="top:0; left:0; background-image: url(@asset('images/Logotype.png')); background-position: center; background-size: 100% auto; background-repeat: no-repeat; height: 40px;">
       </span>
       <!-- <img src="@asset('images/logotype.png')" alt="" class="position-absolute w-100"> -->
-      <img src="@asset('images/Logotype_PaChiko.png')" alt="" class="position-absolute w-100">
+      <!-- <img src="@asset('images/Logotype_PaChiko.png')" alt="" class="position-absolute w-100"> -->
     </a>
     <nav id="nav_primary" class="nav-primary local_nav d-none d-lg-flex align-items-center mx-auto">
       @if ( is_front_page() && has_nav_menu('home_navigation'))

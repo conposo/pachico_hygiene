@@ -10,7 +10,7 @@
   </div>
   <div class="see-more">
     <a class="text-uppercase btn btn-outline-primary btn-sm" href="{{ get_permalink() }}">
-      read more
+      виж повече
       <i class="fa fa-chevron-right"></i>
     </a>
   </div>
