@@ -6,8 +6,18 @@
 
 @section('content')
   @while(have_posts()) @php the_post() @endphp
-    @include('partials.page-header')
-    @include('partials.content-page')
+    <figure class="">
+      {!! get_the_post_thumbnail('', 'full', ['class' => 'w-100 h-auto']) !!}
+    </figure>
+    <div class="d-flex flex-column align-items-center w-100 mt-n6 mb-5 text-center">
+      <div class="header_blue m-0 p-4 text-white">
+        <h1 class="m-0">{!! App::title() !!}</h1>
+      </div>
+      <div class="header_blue_light"></div>
+    </div>
+    <div class="mb-5">
+      @include('partials.content-page')
+    </div>
   @endwhile
 
   <!-- embeded map -->

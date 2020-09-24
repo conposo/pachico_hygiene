@@ -9,6 +9,9 @@
     <div class="button-group filter-button-group d-flex justify-content-between justify-content-sm-center mb-6">
         <button class="d-inline-block shadow py-1 px-1 px-sm-2 text-uppercase" data-filter="*">всички</button>
         @foreach($product_groups as $group)
+        <?php
+        // dd( $group );
+        ?>
             <button class="ml-2 d-inline-block shadow py-sm-1 px-1 px-sm-2 text-uppercase" data-filter=".{{ str_replace(' ', '', $group['label']) }}">{{ $group['label'] }}</button>
         @endforeach
     </div>
@@ -16,25 +19,48 @@
     <div class="grid products d-flex">
         @foreach($product_groups as $group)
             @if( $group['items'] )
-                @foreach($group['items'] as $item)
                 @php
-                $product_image_id = $item['product'];
-                //dd($product_image_id);
+                $category = $group['category'];
+                $category_image_id = $group['category_image'];
+                // dd($category);
+                $count = 0;
                 @endphp
-                <div class="grid-item {{ str_replace(' ', '', $group['label']) }} mb-2 px-1 px-lg-3">
-                    <a href="{!! get_permalink($product_image_id) !!}" class="position-relative d-block">
-                        <div class="position-relative">
-                            {!! get_the_post_thumbnail($product_image_id, 'thumbnail', ['class' => 'w-100 h-auto']) !!}
-                            <div class="blurred position-absolute">
+                @foreach($group['items'] as $item)
+                    @php
+                    $product_image_id = $item['product'];
+                    // dd($product_image_id);
+                    $count++;
+                    @endphp
+                    <div class="grid-item {{ str_replace(' ', '', $group['label']) }} mb-2 px-1 px-lg-3">
+                        <a href="{!! get_permalink($product_image_id) !!}" class="position-relative d-block">
+                            <div class="position-relative">
                                 {!! get_the_post_thumbnail($product_image_id, 'thumbnail', ['class' => 'w-100 h-auto']) !!}
-                                <span class="product_title position-absolute w-100 text-center">
-                                    <span class="d-block text-uppercase small">{{ $group['label'] }}</span>
-                                    <span class="text-dark">{!! get_the_title($product_image_id) !!}</span>
-                                </span>
+                                <div class="blurred position-absolute">
+                                    {!! get_the_post_thumbnail($product_image_id, 'thumbnail', ['class' => 'w-100 h-auto']) !!}
+                                    <span class="product_title position-absolute w-100 text-center">
+                                        <span class="d-block text-uppercase small">{{ $group['label'] }}</span>
+                                        <span class="text-dark">{!! get_the_title($product_image_id) !!}</span>
+                                    </span>
+                                </div>
                             </div>
-                        </div>
-                    </a>
-                </div>
+                        </a>
+                    </div>
+                    @if($count == count($group['items']))
+                    <div class="grid-item {{ str_replace(' ', '', $group['label']) }} mb-2 px-1 px-lg-3">
+                        <a href="{!! get_term_link($category) !!}" class="position-relative d-block">
+                            <div class="position-relative">
+                                {!! wp_get_attachment_image($category_image_id, 'thumbnail', '', ['class' => 'w-100 h-auto']) !!}
+                                <div class="blurred position-absolute">
+                                    {!! wp_get_attachment_image($category_image_id, 'thumbnail', '', ['class' => 'w-100 h-auto']) !!}
+                                    <span class="product_title position-absolute w-100 text-center">
+                                        <span class="d-block text-uppercase small">{{ $group['label'] }}</span>
+                                        <span class="text-dark text-uppercase small">виж повече</span>
+                                    </span>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                    @endif
                 @endforeach
             @endif
         @endforeach

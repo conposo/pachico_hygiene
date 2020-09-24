@@ -12,19 +12,17 @@
         <div class="search d-flex justify-content-center py-5">
           {!! get_search_form(false) !!}
         </div>
-        <div class="see_here d-flex justify-content-center">
+        <div class="d-none see_here -d-flex justify-content-center">
           <a class="btn btn-white btn-sm" href="http://localhost/clients/pachico/hygiene/web/contact-us/">
           <span class="d-block text-center">
             <i style="font-size: 24px;" class="far fa-address-book"></i>
           </span>
           Contact Us</a>
-
           <a class="mx-3 btn btn-white btn-sm" href="http://localhost/clients/pachico/hygiene/web/faq/">
           <span class="d-block text-center">
             <i style="font-size: 24px;" class="far fa-question-circle"></i>
           </span>
           FAQ</a>
-          
           <a class="btn btn-white btn-sm" href="http://localhost/clients/pachico/hygiene/web/about-us/" aria-current="page">
           <span class="d-block text-center">
             <i style="font-size: 24px;" class="far fa-building"></i>

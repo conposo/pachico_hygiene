@@ -95,7 +95,7 @@ function cmpso_custom_post_types() {
         'map_meta_cap'       => true,
         'supports'           => array( 'title', 'editor', 'thumbnail', 'excerpt' )
     );
-	register_post_type( 'team_members', $team_args );
+	// register_post_type( 'team_members', $team_args );
 
     $labels = array(
         'name'               => 'Jobs',
@@ -130,7 +130,7 @@ function cmpso_custom_post_types() {
         'map_meta_cap'       => true,
         'supports'           => array( 'title', 'editor', 'thumbnail', 'excerpt' )
     );
-	register_post_type( 'jobs', $jobs_args );
+	// register_post_type( 'jobs', $jobs_args );
 
     $labels = array(
         'name'               => 'Certificates',
@@ -165,7 +165,7 @@ function cmpso_custom_post_types() {
         'map_meta_cap'       => true,
         'supports'           => array( 'title', 'editor', 'thumbnail', 'excerpt' )
     );
-	register_post_type( 'certificates', $certificate_args );
+	// register_post_type( 'certificates', $certificate_args );
 
 }
 add_action( 'init', 'cmpso_custom_post_types' );

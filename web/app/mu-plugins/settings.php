@@ -1,6 +1,6 @@
 <?php
 // create custom plugin settings menu
-add_action('admin_menu', 'my_cool_plugin_create_menu');
+// add_action('admin_menu', 'my_cool_plugin_create_menu');
 
 function my_cool_plugin_create_menu() {
 
@@ -21,31 +21,31 @@ function register_my_cool_plugin_settings() {
 
 function my_cool_plugin_settings_page() {
 ?>
-<div class="wrap">
-<h1>Your Plugin Name</h1>
+    <div class="wrap">
+    <h1>Your Plugin Name</h1>
 
-<form method="post" action="options.php">
-    <?php settings_fields( 'my-cool-plugin-settings-group' ); ?>
-    <?php do_settings_sections( 'my-cool-plugin-settings-group' ); ?>
-    <table class="form-table">
-        <tr valign="top">
-        <th scope="row">New Option Name</th>
-        <td><input type="text" name="new_option_name" value="<?php echo esc_attr( get_option('new_option_name') ); ?>" /></td>
-        </tr>
-         
-        <tr valign="top">
-        <th scope="row">Some Other Option</th>
-        <td><input type="text" name="some_other_option" value="<?php echo esc_attr( get_option('some_other_option') ); ?>" /></td>
-        </tr>
+    <form method="post" action="options.php">
+        <?php settings_fields( 'my-cool-plugin-settings-group' ); ?>
+        <?php do_settings_sections( 'my-cool-plugin-settings-group' ); ?>
+        <table class="form-table">
+            <tr valign="top">
+            <th scope="row">New Option Name</th>
+            <td><input type="text" name="new_option_name" value="<?php echo esc_attr( get_option('new_option_name') ); ?>" /></td>
+            </tr>
+            
+            <tr valign="top">
+            <th scope="row">Some Other Option</th>
+            <td><input type="text" name="some_other_option" value="<?php echo esc_attr( get_option('some_other_option') ); ?>" /></td>
+            </tr>
+            
+            <tr valign="top">
+            <th scope="row">Options, Etc.</th>
+            <td><input type="text" name="option_etc" value="<?php echo esc_attr( get_option('option_etc') ); ?>" /></td>
+            </tr>
+        </table>
         
-        <tr valign="top">
-        <th scope="row">Options, Etc.</th>
-        <td><input type="text" name="option_etc" value="<?php echo esc_attr( get_option('option_etc') ); ?>" /></td>
-        </tr>
-    </table>
-    
-    <?php submit_button(); ?>
+        <?php submit_button(); ?>
 
-</form>
-</div>
+    </form>
+    </div>
 <?php } ?>
