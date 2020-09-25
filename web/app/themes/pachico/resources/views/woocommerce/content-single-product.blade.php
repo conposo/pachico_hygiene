@@ -128,22 +128,30 @@ if ( post_password_required() ) {
 						<i class="fa fa-minus"></i>
 					</div>
 					<div id="collapseOne" class="collapse show" data-parent="#accordionExample">
-						<div class="bg-light shadow-sm my-2 p-1">
-							<span class="mb-1 d-block text-dark font-weight-bold text-uppercase small">Приложение на продукта:</span>
-							{!! $product_description['application'] !!}
-						</div>
-						<div class="bg-light shadow-sm my-2 p-1">
-							<span class="mb-1 d-block text-dark font-weight-bold text-uppercase small">Препоръки за употреба:</span>
-							{!! $product_description['recommendations'] !!}
-						</div>
-						<div class="bg-light shadow-sm my-2 p-1">
-							<span class="mb-1 d-block text-dark font-weight-bold text-uppercase small">Подходящ за:</span>
-							{!! $product_description['suitable_for'] !!}
-						</div>
-						<div class="bg-light shadow-sm my-2 p-1">
-							<span class="mb-1 d-block text-dark font-weight-bold text-uppercase small">Разфасовки:</span>
-							{!! $product_description['packages'] !!}
-						</div>
+						@if($product_description['application'])
+							<div class="bg-light shadow-sm my-2 p-1">
+								<span class="mb-1 d-block text-dark font-weight-bold text-uppercase small">Приложение на продукта:</span>
+								{!! $product_description['application'] !!}
+							</div>
+						@endif
+						@if($product_description['recommendations'])
+							<div class="bg-light shadow-sm my-2 p-1">
+								<span class="mb-1 d-block text-dark font-weight-bold text-uppercase small">Препоръки за употреба:</span>
+								{!! $product_description['recommendations'] !!}
+							</div>
+						@endif
+						@if($product_description['suitable_for'])
+							<div class="bg-light shadow-sm my-2 p-1">
+								<span class="mb-1 d-block text-dark font-weight-bold text-uppercase small">Подходящ за:</span>
+								{!! $product_description['suitable_for'] !!}
+							</div>
+						@endif
+						@if($product_description['packages'])
+							<div class="bg-light shadow-sm my-2 p-1">
+								<span class="mb-1 d-block text-dark font-weight-bold text-uppercase small">Разфасовки:</span>
+								{!! $product_description['packages'] !!}
+							</div>
+						@endif
 					</div>
 				</div>
 				<div class="p-2 shadow">
@@ -154,18 +162,30 @@ if ( post_password_required() ) {
 						<i class="fa fa-plus"></i>
 					</div>
 					<div id="collapseTwo" class="collapse" data-parent="#accordionExample">
-						<div class="bg-light shadow-sm my-2 p-1">
-							<span class="mb-1 d-block text-dark font-weight-bold text-uppercase small">Технически характеристики:</span>
-							{!! $product_description['technical_characteristics'] !!}
-						</div>
-						<div class="bg-light shadow-sm my-2 p-1">
-							<span class="mb-1 d-block text-dark font-weight-bold text-uppercase small">Препоръки за безопасност:</span>
-							{!! $product_description['safety_recommendations'] !!}
-						</div>
-						<div class="bg-light shadow-sm my-2 p-1">
-							<span class="mb-1 d-block text-dark font-weight-bold text-uppercase small">Срок на годност:</span>
-							{!! $product_description['expiry_date'] !!}
-						</div>
+						@if( $product_description['technical_characteristics'] )
+							<div class="bg-light shadow-sm my-2 p-1">
+								<span class="mb-1 d-block text-dark font-weight-bold text-uppercase small">Технически характеристики:</span>
+								{!! $product_description['technical_characteristics'] !!}
+							</div>
+						@endif
+						@if( $product_description['danger_warnings'] )
+							<div class="bg-light shadow-sm my-2 p-1">
+								<span class="mb-1 d-block text-dark font-weight-bold text-uppercase small">Предупреждения за опасност:</span>
+								{!! $product_description['danger_warnings'] !!}
+							</div>
+						@endif
+						@if( $product_description['safety_recommendations'] )
+							<div class="bg-light shadow-sm my-2 p-1">
+								<span class="mb-1 d-block text-dark font-weight-bold text-uppercase small">Препоръки за безопасност:</span>
+								{!! $product_description['safety_recommendations'] !!}
+							</div>
+						@endif
+						@if( $product_description['expiry_date'] )
+							<div class="bg-light shadow-sm my-2 p-1">
+								<span class="mb-1 d-block text-dark font-weight-bold text-uppercase small">Срок на годност:</span>
+								{!! $product_description['expiry_date'] !!}
+							</div>
+						@endif
 						<div class="">
 						@if($product_description['pictograms'])
 							<div class="d-flex">
