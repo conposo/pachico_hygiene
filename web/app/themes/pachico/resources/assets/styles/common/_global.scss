@@ -43,9 +43,13 @@ a {
     }
 }
 
+.blue-border-bottom-fixed {
+    border-bottom: 3px solid #006daf;
+}
+
 .header_blue,
 .header_blue_light {
-  min-width: 350px;
+  min-width: 345px;
   max-width: 750px;
   box-shadow: 0 3px 45px rgba(0, 0, 0, .15);
 }
@@ -63,9 +67,12 @@ a {
     font-size: 18px;
   }
   h1 {
-    font-size: 50px;
+    font-size: 34px;
     line-height: 1.1em;
     font-weight: 700;
+    @include media-breakpoint-up(md) {
+        font-size: 50px;
+    }
   }
 }
 

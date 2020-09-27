@@ -70,14 +70,10 @@ body {
         }
 
         h3 {
+            font-size: 2rem !important;
             margin-bottom: 30px !important;
             padding-bottom: 3px;
-            // .blue-border-bottom / _globals.scss
-            border-top: 3px solid #006daf;
-            @include media-breakpoint-up(sm) {
-                border-top-width: 0;
-                border-bottom: 3px solid #006daf;
-            }
+            border-bottom: 3px solid #006daf;
         }
 
         form#form_contact-form {
