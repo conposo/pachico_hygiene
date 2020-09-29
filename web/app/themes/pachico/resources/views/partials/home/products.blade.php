@@ -7,11 +7,8 @@
 <section id="products" class="container d-flex flex-column justify-content-center mb-5">
 
     <div class="button-group filter-button-group d-flex justify-content-between justify-content-sm-center mb-6">
-        <button class="d-inline-block shadow py-1 px-1 px-sm-2 text-uppercase" data-filter="*">всички</button>
+        <!-- <button class="d-inline-block shadow py-1 px-1 px-sm-2 text-uppercase" data-filter="*">всички</button> -->
         @foreach($product_groups as $group)
-        <?php
-        // dd( $group );
-        ?>
             <button class="ml-2 d-inline-block shadow py-sm-1 px-1 px-sm-2 text-uppercase" data-filter=".{{ str_replace(' ', '', $group['label']) }}">{{ $group['label'] }}</button>
         @endforeach
     </div>
