@@ -13,7 +13,7 @@
         foreach($recent_posts as $post) : ?>
             <div class="position-relative shadow-lg">
                 <a href="<?php echo get_permalink($post['ID']) ?>">
-                    <?php echo get_the_post_thumbnail($post['ID'], 'thumbnail', ['class' => 'w-100 h-auto']); ?>
+                    <?php echo get_the_post_thumbnail($post['ID'], 'medium', ['class' => 'w-100 h-auto']); ?>
                     <!-- <p class="position-absolute w-100 py-2 text-center bg-white">
                         <span class="text-primary text-uppercase small">see more ></span>
                     </p> -->
