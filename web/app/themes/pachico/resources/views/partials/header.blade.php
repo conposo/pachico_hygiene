@@ -33,7 +33,7 @@
         <!-- <div id="wp_nav_menu" class="">
         </div> -->
       @elseif (has_nav_menu('primary_navigation'))
-        {!! wp_nav_menu(['theme_location' => 'primary_navigation', 'menu_class' => 'nav']) !!}
+        {!! wp_nav_menu(['theme_location' => 'primary_navigation', 'menu_class' => 'nav', 'items_wrap' => '<ul id="%1$s" class="%2$s d-flex flex-column flex-sm-row">%3$s</ul>']) !!}
       @endif
     </nav>
     <div class="d-flex justify-content-end align-items-center">
@@ -45,11 +45,12 @@
   </div>
 </header>
 
+<!-- {{get_post_type() == 'post'}} -->
 <script>
 const $ = jQuery;
 $(document).ready(function() {
   @if( ! is_front_page() )
-    $('#margin-top').height( $('header.banner').height() + 45 );
+    $('#margin-top').height( $('header.banner').height() + @if(get_post_type() != 'post') 45 @else 15 @endif );
   @endif
 
   $('#open_nav_primary, .menu-item').on('click', function() {

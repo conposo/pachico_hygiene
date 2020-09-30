@@ -124,11 +124,11 @@ body > div.loading {
         p {
             bottom: 10%;
             overflow: hidden;
-            max-height: 86px;
-
+            max-height: 76px;
+            
             font-size: 16px;
-            @include media-breakpoint-up(lg) {
-                // font-size: 20px;
+            @include media-breakpoint-up(sm) {
+                max-height: 86px;
                 // white-space: nowrap;
             }
         }
