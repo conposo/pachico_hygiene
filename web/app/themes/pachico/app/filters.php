@@ -168,3 +168,9 @@ function the_post_thumbnail_caption() {
        return;
      }
 }
+
+// remove width & height attributes from images
+// 
+add_filter( 'post_thumbnail_html', function($html) {
+    return preg_replace('/(width|height)="\d+"\s/', "", $html);
+});

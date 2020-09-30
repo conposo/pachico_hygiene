@@ -13,7 +13,7 @@
         foreach($recent_posts as $post) : ?>
             <div class="position-relative shadow-lg">
                 <a href="<?php echo get_permalink($post['ID']) ?>">
-                    <?php echo get_the_post_thumbnail($post['ID'], 'medium', ['class' => 'w-100 h-auto']); ?>
+                    <?php echo get_the_post_thumbnail($post['ID'], 'large', ['class' => 'w-auto']); ?>
                     <!-- <p class="position-absolute w-100 py-2 text-center bg-white">
                         <span class="text-primary text-uppercase small">see more ></span>
                     </p> -->
@@ -24,5 +24,11 @@
             </div>
         <?php endforeach; wp_reset_query(); ?>
     </div>
+
+    <script>
+    jQuery(document).on('ready', function(){
+        jQuery('#recent_posts_slider > div img').height( jQuery('#recent_posts_slider > div').width() )
+    })
+    </script>
 
 </aside>
