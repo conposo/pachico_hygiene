@@ -36,7 +36,7 @@ the readme will list any important changes.
 
   <header class="woocommerce-products-header my-6 pt-3 pb-4 text-center">
     <div class="d-inline-flex flex-column">
-      <div class="header_blue d-inline-flex flex-column py-4 px-4 text-white">
+      <div class="header_blue d-inline-flex flex-column py-4 px-sm-4 text-white">
         @if(apply_filters('woocommerce_show_page_title', true))
           <h1 class="woocommerce-products-header__title page-title mb-3">{!! woocommerce_page_title(false) !!}</h1>
         @endif
@@ -113,7 +113,7 @@ the readme will list any important changes.
           @else
           href="#"
           @endif
-          class="position-relative d-flex justify-content-start align-items-end p-2 w-100 h-100 text-white">
+          class="position-relative d-flex justify-content-start align-items-end p-1 p-sm-2 w-100 h-100 text-white">
           <span class="cat_name">{{$cat->name}}</span>
           @if( isset($category_term_id) && $category_term_id == $cat->term_id )
           <span class="show_in_hover position-absolute">

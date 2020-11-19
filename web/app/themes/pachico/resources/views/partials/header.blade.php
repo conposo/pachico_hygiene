@@ -2,14 +2,14 @@
   @php
     $category = get_queried_object();
   @endphp
-  <div id="category_main_header" class="h5 m-0 position-fixed w-100 py-2 text-center text-uppercase text-white">
+  <div id="category_main_header" class="d-none d-lg-block h5 m-0 position-fixed w-100 py-2 text-center text-uppercase text-white">
     <span>
       {{ $category->name }}
     </span>
   </div>
 @endif
 @if( is_product() )
-  <div id="category_main_header" class="h5 m-0 position-fixed w-100 py-2 text-center text-uppercase text-white">
+  <div id="category_main_header" class="d-none d-lg-block h5 m-0 position-fixed w-100 py-2 text-center text-uppercase text-white">
     <span>
       {{ get_the_title() }}
     </span>
@@ -84,11 +84,11 @@ $(document).ready(function() {
   window.onscroll = function(e) {
       // console.log(this.oldScroll > this.scrollY);
       let up = this.oldScroll > this.scrollY;
-      if(up) {
-        console.log('going Up');
-      } else {
-        console.log('going Down');
-      }
+      // if(up) {
+      //   console.log('going Up');
+      // } else {
+      //   console.log('going Down');
+      // }
 
       @if( is_product_category() || is_product() )
         if( up ) {
