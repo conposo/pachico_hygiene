@@ -1862,5 +1862,131 @@ function cmpso_acf_fields() {
         ));        
         
     endif;  // END Contacts
+
+    if( function_exists('acf_add_local_field_group') ):  // END Partners
+        acf_add_local_field_group(array( 
+            'key' => 'group_5fba7f4fa11cc',
+            'title' => 'Partners',
+            'fields' => array(
+                array(
+                    'key' => 'field_5fba7fe532118',
+                    'label' => 'Partners',
+                    'name' => 'partners',
+                    'type' => 'repeater',
+                    'instructions' => '',
+                    'required' => 0,
+                    'conditional_logic' => 0,
+                    'wrapper' => array(
+                        'width' => '',
+                        'class' => '',
+                        'id' => '',
+                    ),
+                    'collapsed' => '',
+                    'min' => 0,
+                    'max' => 0,
+                    'layout' => 'table',
+                    'button_label' => 'Добави нов партньор',
+                    'sub_fields' => array(
+                        array(
+                            'key' => 'field_5fba7f5d2d70d',
+                            'label' => 'Partner',
+                            'name' => 'partner',
+                            'type' => 'group',
+                            'instructions' => '',
+                            'required' => 0,
+                            'conditional_logic' => 0,
+                            'wrapper' => array(
+                                'width' => '',
+                                'class' => '',
+                                'id' => '',
+                            ),
+                            'layout' => 'block',
+                            'sub_fields' => array(
+                                array(
+                                    'key' => 'field_5fba8116f43aa',
+                                    'label' => 'Url',
+                                    'name' => 'url',
+                                    'type' => 'text',
+                                    'instructions' => '',
+                                    'required' => 0,
+                                    'conditional_logic' => 0,
+                                    'wrapper' => array(
+                                        'width' => '',
+                                        'class' => '',
+                                        'id' => '',
+                                    ),
+                                    'default_value' => '',
+                                    'placeholder' => '',
+                                    'prepend' => '',
+                                    'append' => '',
+                                    'maxlength' => '',
+                                ),
+                                array(
+                                    'key' => 'field_5fba7f692d70e',
+                                    'label' => 'Logo',
+                                    'name' => 'logo',
+                                    'type' => 'image',
+                                    'instructions' => '',
+                                    'required' => 0,
+                                    'conditional_logic' => 0,
+                                    'wrapper' => array(
+                                        'width' => '',
+                                        'class' => '',
+                                        'id' => '',
+                                    ),
+                                    'return_format' => 'id',
+                                    'preview_size' => 'medium',
+                                    'library' => 'all',
+                                    'min_width' => '',
+                                    'min_height' => '',
+                                    'min_size' => '',
+                                    'max_width' => '',
+                                    'max_height' => '',
+                                    'max_size' => '',
+                                    'mime_types' => '',
+                                ),
+                                array(
+                                    'key' => 'field_5fba7f7d2d70f',
+                                    'label' => 'Text',
+                                    'name' => 'text',
+                                    'type' => 'text',
+                                    'instructions' => '',
+                                    'required' => 0,
+                                    'conditional_logic' => 0,
+                                    'wrapper' => array(
+                                        'width' => '',
+                                        'class' => '',
+                                        'id' => '',
+                                    ),
+                                    'default_value' => '',
+                                    'placeholder' => '',
+                                    'prepend' => '',
+                                    'append' => '',
+                                    'maxlength' => '',
+                                ),
+                            ),
+                        ),
+                    ),
+                ),
+            ),
+            'location' => array(
+                array(
+                    array(
+                        'param' => 'post_template',
+                        'operator' => '==',
+                        'value' => 'views/template-partners.blade.php',
+                    ),
+                ),
+            ),
+            'menu_order' => 0,
+            'position' => 'normal',
+            'style' => 'default',
+            'label_placement' => 'top',
+            'instruction_placement' => 'label',
+            'hide_on_screen' => '',
+            'active' => true,
+            'description' => '',
+        ));
+    endif;  // END Partners
 }
 add_action( 'init', 'cmpso_acf_fields' );
