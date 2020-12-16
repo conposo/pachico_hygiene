@@ -36,13 +36,15 @@ if ( post_password_required() ) {
 	@php
 	$text_make_inquiry = 'MACHE EINE ANFRAGE';
 	$text_download_files = 'DATEIEN HERUNTERLADEN';
-	$text_application_and_recommendations = 'ANWENDUNG UND EMPFEHLUNGEN';
+	$text_label_application_and_recommendations = 'ANWENDUNG UND EMPFEHLUNGEN';
 
 	$text_product_description_application = 'ANWENDUNG DES PRODUKTS:';
 	$text_product_description_recommendations = 'EMPFEHLUNGEN FÜR DEN GEBRAUCH:';
 	$text_product_description_suitable_for = 'GEEIGNET FÜR:';
 	$text_product_description_packages = 'VERPACKUNGEN:';
 	
+	$text_label_technical_characteristics = 'TECHNISCHE DATEN';
+
 	$text_product_description_technical_characteristics = 'TECHNISCHE DATEN:';
 	$text_product_description_danger_warnings = 'GEFAHRENWARNUNGEN:';
 	$text_product_description_safety_recommendations = 'SICHERHEITSEMPFEHLUNGEN:';
@@ -52,12 +54,14 @@ if ( post_password_required() ) {
 	@php
 	$text_make_inquiry = 'направи запитване';
 	$text_download_files = 'изтегли файлове';
-	$text_application_and_recommendations = 'Приложение и препоръки';
-
+	$text_label_application_and_recommendations = 'Приложение и препоръки';
+	
 	$text_product_description_application = 'Приложение на продукта:';
 	$text_product_description_recommendations = 'Препоръки за употреба:';
 	$text_product_description_suitable_for = 'Подходящ за:';
 	$text_product_description_packages = 'Разфасовки:';
+	
+	$text_label_technical_characteristics = 'Технически данни';
 
 	$text_product_description_technical_characteristics = 'Технически характеристики:';
 	$text_product_description_danger_warnings = 'Предупреждения за опасност:';
@@ -158,7 +162,7 @@ if ( post_password_required() ) {
 					<div class="d-flex justify-content-between align-items-center cursor-pointer text-uppercase small text-black" id="collapse_one"
 						onclick="jQuery('#accordionExample i').addClass('fa-plus'); jQuery('#collapse_one').find('i').removeClass('fa-plus').addClass('fa-minus')"
 						data-toggle="collapse" data-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
-							<span class="">{{$text_application_and_recommendations}}</span>
+							<span class="">{{$text_label_application_and_recommendations}}</span>
 						<i class="fa fa-minus"></i>
 					</div>
 					<div id="collapseOne" class="collapse show" data-parent="#accordionExample">
@@ -192,7 +196,7 @@ if ( post_password_required() ) {
 					<div class="d-flex justify-content-between align-items-center cursor-pointer text-uppercase small text-black" id="collapse_two"
 					onclick="jQuery('#accordionExample i').addClass('fa-plus'); jQuery('#collapse_two').find('i').removeClass('fa-plus').addClass('fa-minus')"
 					data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-						<span class="">Технически данни</span>
+						<span class="">{{$text_label_technical_characteristics}}</span>
 						<i class="fa fa-plus"></i>
 					</div>
 					<div id="collapseTwo" class="collapse" data-parent="#accordionExample">
