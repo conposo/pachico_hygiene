@@ -31,6 +31,40 @@ if ( post_password_required() ) {
 	return;
 }
 ?>
+
+@if( $host[0] == 'de' )
+	@php
+	$text_make_inquiry = 'MACHE EINE ANFRAGE';
+	$text_download_files = 'DATEIEN HERUNTERLADEN';
+	$text_application_and_recommendations = 'ANWENDUNG UND EMPFEHLUNGEN';
+
+	$text_product_description_application = 'ANWENDUNG DES PRODUKTS:';
+	$text_product_description_recommendations = 'EMPFEHLUNGEN FÜR DEN GEBRAUCH:';
+	$text_product_description_suitable_for = 'GEEIGNET FÜR:';
+	$text_product_description_packages = 'VERPACKUNGEN:';
+	
+	$text_product_description_technical_characteristics = 'TECHNISCHE DATEN:';
+	$text_product_description_danger_warnings = 'GEFAHRENWARNUNGEN:';
+	$text_product_description_safety_recommendations = 'SICHERHEITSEMPFEHLUNGEN:';
+	$text_product_description_expiry_date = 'HALTBARKEITSDAUER:';
+	@endphp
+@else
+	@php
+	$text_make_inquiry = 'направи запитване';
+	$text_download_files = 'изтегли файлове';
+	$text_application_and_recommendations = 'Приложение и препоръки';
+
+	$text_product_description_application = 'Приложение на продукта:';
+	$text_product_description_recommendations = 'Препоръки за употреба:';
+	$text_product_description_suitable_for = 'Подходящ за:';
+	$text_product_description_packages = 'Разфасовки:';
+
+	$text_product_description_technical_characteristics = 'Технически характеристики:';
+	$text_product_description_danger_warnings = 'Предупреждения за опасност:';
+	$text_product_description_safety_recommendations = 'Препоръки за безопасност:';
+	$text_product_description_expiry_date = 'Срок на годност:';
+	@endphp
+@endif
 <div id="product-<?php the_ID(); ?>" <?php wc_product_class( 'my-6', $product ); ?>>
 
 	<style>
@@ -85,7 +119,7 @@ if ( post_password_required() ) {
 				@endif
 			</div>
 			<div id="cta_make_inquiry" class="local_nav position-relative">
-				<a href="#make_inquiry" class="position-absolute w-100 btn btn-sm btn-outline-dark text-uppercase rounded-0">направи запитване</a>
+				<a href="#make_inquiry" class="position-absolute w-100 btn btn-sm btn-outline-dark text-uppercase rounded-0">{{$text_make_inquiry}}</a>
 			</div>
 		</div>
 	</div>
@@ -100,7 +134,7 @@ if ( post_password_required() ) {
 				@if($files)
 					<div class="">
 					<spam class="d-block text-uppercase small">
-					изтегли файлове
+					{{$text_download_files}}
 					</spam>
 					@foreach($files as $file)
 						@php
@@ -124,31 +158,31 @@ if ( post_password_required() ) {
 					<div class="d-flex justify-content-between align-items-center cursor-pointer text-uppercase small text-black" id="collapse_one"
 						onclick="jQuery('#accordionExample i').addClass('fa-plus'); jQuery('#collapse_one').find('i').removeClass('fa-plus').addClass('fa-minus')"
 						data-toggle="collapse" data-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
-						<span class="">Приложение и препоръки</span>
+							<span class="">{{$text_application_and_recommendations}}</span>
 						<i class="fa fa-minus"></i>
 					</div>
 					<div id="collapseOne" class="collapse show" data-parent="#accordionExample">
 						@if($product_description['application'])
 							<div class="bg-light shadow-sm my-2 p-1">
-								<span class="mb-1 d-block text-dark font-weight-bold text-uppercase small">Приложение на продукта:</span>
+								<span class="mb-1 d-block text-dark font-weight-bold text-uppercase small">{{$text_product_description_application}}</span>
 								{!! $product_description['application'] !!}
 							</div>
 						@endif
 						@if($product_description['recommendations'])
 							<div class="bg-light shadow-sm my-2 p-1">
-								<span class="mb-1 d-block text-dark font-weight-bold text-uppercase small">Препоръки за употреба:</span>
+								<span class="mb-1 d-block text-dark font-weight-bold text-uppercase small">{{$text_product_description_recommendations}}</span>
 								{!! $product_description['recommendations'] !!}
 							</div>
 						@endif
 						@if($product_description['suitable_for'])
 							<div class="bg-light shadow-sm my-2 p-1">
-								<span class="mb-1 d-block text-dark font-weight-bold text-uppercase small">Подходящ за:</span>
+								<span class="mb-1 d-block text-dark font-weight-bold text-uppercase small">{{$text_product_description_suitable_for}}</span>
 								{!! $product_description['suitable_for'] !!}
 							</div>
 						@endif
 						@if($product_description['packages'])
 							<div class="bg-light shadow-sm my-2 p-1">
-								<span class="mb-1 d-block text-dark font-weight-bold text-uppercase small">Разфасовки:</span>
+								<span class="mb-1 d-block text-dark font-weight-bold text-uppercase small">{{$text_product_description_packages}}</span>
 								{!! $product_description['packages'] !!}
 							</div>
 						@endif
@@ -164,25 +198,25 @@ if ( post_password_required() ) {
 					<div id="collapseTwo" class="collapse" data-parent="#accordionExample">
 						@if( $product_description['technical_characteristics'] )
 							<div class="bg-light shadow-sm my-2 p-1">
-								<span class="mb-1 d-block text-dark font-weight-bold text-uppercase small">Технически характеристики:</span>
+								<span class="mb-1 d-block text-dark font-weight-bold text-uppercase small">{{$text_product_description_technical_characteristics}}</span>
 								{!! $product_description['technical_characteristics'] !!}
 							</div>
 						@endif
 						@if( $product_description['danger_warnings'] )
 							<div class="bg-light shadow-sm my-2 p-1">
-								<span class="mb-1 d-block text-dark font-weight-bold text-uppercase small">Предупреждения за опасност:</span>
+								<span class="mb-1 d-block text-dark font-weight-bold text-uppercase small">{{$text_product_description_danger_warnings}}</span>
 								{!! $product_description['danger_warnings'] !!}
 							</div>
 						@endif
 						@if( $product_description['safety_recommendations'] )
 							<div class="bg-light shadow-sm my-2 p-1">
-								<span class="mb-1 d-block text-dark font-weight-bold text-uppercase small">Препоръки за безопасност:</span>
+								<span class="mb-1 d-block text-dark font-weight-bold text-uppercase small">{{$text_product_description_safety_recommendations}}</span>
 								{!! $product_description['safety_recommendations'] !!}
 							</div>
 						@endif
 						@if( $product_description['expiry_date'] )
 							<div class="bg-light shadow-sm my-2 p-1">
-								<span class="mb-1 d-block text-dark font-weight-bold text-uppercase small">Срок на годност:</span>
+								<span class="mb-1 d-block text-dark font-weight-bold text-uppercase small">{{$text_product_description_expiry_date}}</span>
 								{!! $product_description['expiry_date'] !!}
 							</div>
 						@endif
@@ -206,7 +240,7 @@ if ( post_password_required() ) {
 
 
 	<div id="make_inquiry" class="position-relative shadow-lg my-3 px-1 pt-5 px-sm-3">
-		<h3 class="position-absolute w-100 py-1 px-2 text-uppercase small" style="border-bottom: 1px solid #bfc3c8;">направи запитване</h3>
+		<h3 class="position-absolute w-100 py-1 px-2 text-uppercase small" style="border-bottom: 1px solid #bfc3c8;">{{$text_make_inquiry}}</h3>
 		{!! do_shortcode('[formidable id=2]') !!}
 		<img src="@asset('images/logo-pachico.png')" class="position-absolute">
 	</div>
