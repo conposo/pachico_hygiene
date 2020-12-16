@@ -1,8 +1,20 @@
+
+@if( $host[0] == 'de' )
+	@php
+	$text_terms = 'Nutzungsbedingungen';
+	$text_privacy = 'Vertraulichkeit';
+	@endphp
+@else
+	@php
+  $text_terms = 'Условия за ползване';
+  $text_privacy = 'Поверителност';
+	@endphp
+@endif
+
 <footer class="content-info mt-5 bg-light border-top">
   
   <div class="container">
     @php dynamic_sidebar('sidebar-footer') @endphp
-    <!-- <a href="<?php echo get_permalink( get_option( 'page_for_posts' ) ); ?>">Our Blog</a> -->
   </div>
 
   <div class="container d-flex mb-3">
@@ -58,9 +70,9 @@
         <div>
           <span class="d-none d-sm-inline">|</span>
           <!-- <a class="mr-1" href="#">Terms & Conditions</a> -->
-          <a class="mr-1" href="/terms-conditions">Условия за ползване</a>
+          <a class="mr-1" href="/terms-conditions">{{$text_terms}}</a>
           |
-          <a class="mr-1" href="/privacy-policy">Поверителност</a>
+          <a class="mr-1" href="/privacy-policy">{{$text_privacy}}</a>
           <!-- |
           <a class="mr-1" href="#">Sitemap</a> -->
         </div>

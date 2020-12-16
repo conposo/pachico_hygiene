@@ -7,6 +7,13 @@ use Sober\Controller\Controller;
 class App extends Controller
 {
 
+    public function host()
+    {
+        $parsedUrl = parse_url($_SERVER['SERVER_NAME']);
+        $host = explode('.', $parsedUrl["path"]);
+        return $host;
+    }
+    
     public function ContainerClass()
     {
         return ( is_front_page() || (is_single() && !is_product()) ) ? '' : 'container';
