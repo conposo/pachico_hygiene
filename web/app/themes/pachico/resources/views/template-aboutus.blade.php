@@ -81,7 +81,9 @@
   
   <!-- Popular peroducts / Image Gallery -->
   <section class="my-5">
-    <h1 class="mb-n6 text-center">Най-популярните ни продукти</h1>
+    <h1 class="mb-n6 text-center">
+      @if( $host[0] == 'de' ) Unsere beliebtesten produkte @else Най-популярните ни продукти @endif
+    </h1>
     <!-- products -->
     @php
       $products = $section4['products'];
