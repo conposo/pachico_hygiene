@@ -1580,7 +1580,7 @@ function cmpso_acf_fields() {
                     ),
                     'collapsed' => '',
                     'min' => 3,
-                    'max' => 4,
+                    'max' => 14,
                     'layout' => 'table',
                     'button_label' => '',
                     'sub_fields' => array(

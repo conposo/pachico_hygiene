@@ -82,7 +82,7 @@
   <!-- Popular peroducts / Image Gallery -->
   <section class="my-5">
     <h1 class="mb-n6 text-center">
-      @if( $host[0] == 'de' ) Unsere beliebtesten produkte @else Най-популярните ни продукти @endif
+      @if( $host[0] == 'de' ) Unsere beliebtesten Produkte @else Най-популярните ни продукти @endif
     </h1>
     <!-- products -->
     @php

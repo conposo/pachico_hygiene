@@ -109,17 +109,17 @@ the readme will list any important changes.
       <div class="card-category position-relative mb-6 @if( isset($category_term_id) && $category_term_id == $cat->term_id ) disabled @endif" style="background-image: url({{$image[0]}}); background-size: cover; background-position: center;">
         <a
           @if( is_shop() || (isset($category_term_id) && $category_term_id != $cat->term_id) )
-          href="{{get_term_link($cat->term_id)}}"
+            href="{{get_term_link($cat->term_id)}}"
           @else
-          href="#"
+            href="#"
           @endif
           class="position-relative d-flex justify-content-start align-items-end p-1 p-sm-2 w-100 h-100 text-white">
           <span class="cat_name">{{$cat->name}}</span>
           @if( isset($category_term_id) && $category_term_id == $cat->term_id )
-          <span class="show_in_hover position-absolute">
-            <i class="fas fa-arrow-up position-absolute"></i>
-            В момента сте тук. Нагоре?
-          </span>
+            <span class="show_in_hover position-absolute">
+              <i class="fas fa-arrow-up position-absolute"></i>
+              В момента сте тук. Нагоре?
+            </span>
           @endif  
           <!-- <span>{{$cat->description}}</span> -->
         </a>

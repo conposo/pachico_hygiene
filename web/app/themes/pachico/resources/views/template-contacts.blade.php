@@ -30,10 +30,10 @@
     </div>
   </div>
 
-  <div class="row mb-6">
+  <div class="row mb-xl-6">
     <div class="col-12">
       <div class="_p-2 _shadow-sm">
-        <div class="row">
+        <div class="row mb-lg-3">
           <div class="mb-3 mb-md-0 col-12 col-md-4">
             @include('partials.contacts.group', ['group' => $sections[0]['group']])
           </div>
@@ -42,9 +42,19 @@
           </div>
           <div class="mb-3 mb-md-0 col-12 col-md-4">
             @include('partials.contacts.group', ['group' => $sections[2]['group']])
-            <div class="mb-3"></div>
+          </div>
+        </div>
+        <div class="row">
+          @if( isset($sections[3]) )
+          <div class="mb-3 mb-md-0 col-12 col-md-4">
             @include('partials.contacts.group', ['group' => $sections[3]['group']])
           </div>
+          @endif
+          @if( isset($sections[4]) )
+          <div class="mb-3 mb-md-0 col-12 col-md-4">
+            @include('partials.contacts.group', ['group' => $sections[4]['group']])
+          </div>
+          @endif
         </div>
       </div>
     </div>

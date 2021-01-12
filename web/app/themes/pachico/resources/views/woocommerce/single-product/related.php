@@ -23,7 +23,13 @@ if ( $related_products ) : ?>
 
 	<section class="related products my-6 pt-3">
 
-		<h2 class="h3 text-uppercase"><?php esc_html_e( 'Related products', 'woocommerce' ); ?></h2>
+		<h2 class="h3 text-uppercase">
+		@if( $host[0] == 'de' )
+			<?php esc_html_e( 'Verwandte Produkte', 'woocommerce' ); ?>
+		@else
+			<?php esc_html_e( 'Related products', 'woocommerce' ); ?>
+		@endif
+		</h2>
 
 		<?php woocommerce_product_loop_start(); ?>
 

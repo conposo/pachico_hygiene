@@ -36,7 +36,13 @@ class App extends Controller
             return get_the_archive_title();
         }
         if (is_search()) {
-            return sprintf(__('Резултати за <i>%s</i>', 'sage'), get_search_query());
+            // if( $host[0] == 'de' )
+            // {
+            // } else {
+            //     $text_results_for = 'Резултати за ';
+            // }
+            $text_results_for = '';
+            return sprintf(__($text_results_for.'<i>%s</i>', 'sage'), get_search_query());
         }
         if (is_404()) {
             return __('Not Found', 'sage');
