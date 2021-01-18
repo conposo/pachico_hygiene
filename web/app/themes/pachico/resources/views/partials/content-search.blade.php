@@ -13,16 +13,34 @@
   </div>
   <div class="see-more">
     <a class="text-uppercase btn btn-outline-primary btn-sm" href="{{ get_permalink() }}">
-      виж повече
+      @if( $host[0] == 'en' )
+        See more
+      @elseif( $host[0] == 'de' )
+        Mehr sehen
+      @else
+        Виж повече
+      @endif
       <i class="fa fa-chevron-right"></i>
     </a>
   </div>
   <span class="position-absolute text-uppercase small" style="top: 15px; right: 5px;">
     @if( get_post_type() == 'product' )
-      продукт
+      @if( $host[0] == 'en' )
+        product
+      @elseif( $host[0] == 'de' )
+        Produkt
+      @else
+        продукт
+      @endif
       <i class="fas fa-store"></i>
     @else
-      от блога
+      @if( $host[0] == 'en' )
+        Blog post
+      @elseif( $host[0] == 'de' )
+        Von dem Blog
+      @else
+        от блога
+      @endif
       <i class="fas fa-bookmark" style="font-size: 14px;"></i>
     @endif
   </span>

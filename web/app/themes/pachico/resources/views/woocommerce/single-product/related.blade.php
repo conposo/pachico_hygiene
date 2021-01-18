@@ -24,7 +24,9 @@ if ( $related_products ) : ?>
 	<section class="related products my-6 pt-3">
 
 		<h2 class="h3 text-uppercase">
-		@if( $host[0] == 'de' )
+		@if( $host[0] == 'en' )
+			<?php esc_html_e( 'Related products', 'woocommerce' ); ?>
+		@elseif( $host[0] == 'de' )
 			<?php esc_html_e( 'Verwandte Produkte', 'woocommerce' ); ?>
 		@else
 			<?php esc_html_e( 'Related products', 'woocommerce' ); ?>
