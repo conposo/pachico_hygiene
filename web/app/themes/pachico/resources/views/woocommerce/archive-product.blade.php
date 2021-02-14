@@ -118,7 +118,13 @@ the readme will list any important changes.
           @if( isset($category_term_id) && $category_term_id == $cat->term_id )
             <span class="show_in_hover position-absolute">
               <i class="fas fa-arrow-up position-absolute"></i>
-              В момента сте тук. Нагоре?
+              @if( $host[0] == 'en' )
+                <!-- Now you are here. Go to top? -->
+              @elseif( $host[0] == 'de' )
+                
+              @else
+                В момента сте тук. Нагоре?
+              @endif
             </span>
           @endif  
           <!-- <span>{{$cat->description}}</span> -->

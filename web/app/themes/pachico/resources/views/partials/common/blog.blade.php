@@ -2,7 +2,15 @@
 <aside>
 
     <div class="container">
-        <h2 class="text-uppercase small">@if( $host[0] == 'de' ) aktuelle veröffentlichungen @else последни публикации @endif</h2>
+        <h2 class="text-uppercase small">
+            @if( $host[0] == 'en' )
+                Recent posts
+            @elseif( $host[0] == 'de' )
+                aktuelle veröffentlichungen
+            @else
+                последни публикации
+            @endif
+        </h2>
     </div>
     <div id="recent_posts_slider" class="d-flex flex-wrap">
         <?php

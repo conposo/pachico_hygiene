@@ -32,7 +32,23 @@ if ( post_password_required() ) {
 }
 ?>
 
-@if( $host[0] == 'de' )
+@if( $host[0] == 'en' )
+	@php
+	$text_make_inquiry = 'make an inquiry';
+	$text_download_files = 'download files';
+	$text_label_application_and_recommendations = ' Use and Recommendations ';
+
+	$text_product_description_application = ' Product use:';
+	$text_product_description_recommendations = ' Recommendations for use:';
+	$text_product_description_suitable_for = ' Areas of use:';
+	$text_product_description_packages = ' Packaging:';
+
+	$text_product_description_technical_characteristics = ' Technical information:';
+	$text_product_description_danger_warnings = ' Hazard statement:';
+	$text_product_description_safety_recommendations = ' Precautionary statements:';
+	$text_product_description_expiry_date = ' Shelf life:';
+	@endphp
+@elseif( $host[0] == 'de' )
 	@php
 	$text_make_inquiry = 'MACHE EINE ANFRAGE';
 	$text_download_files = 'DATEIEN HERUNTERLADEN';

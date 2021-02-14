@@ -1,5 +1,9 @@
 
-@if( $host[0] == 'de' )
+@if( $host[0] == 'en' )
+	@php
+	$text_modal_title = 'Search';
+	@endphp
+@elseif( $host[0] == 'de' )
 	@php
 	$text_modal_title = 'Suche auf unserer Internetseite';
 	@endphp
