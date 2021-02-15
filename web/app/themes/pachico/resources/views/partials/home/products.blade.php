@@ -54,7 +54,7 @@
                                         @if( $host[0] == 'en' )
                                             <span class="text-dark text-uppercase small">See more</span>
                                         @elseif( $host[0] == 'de' )
-                                            <span class="text-dark text-uppercase small">Mehr sehen</span>
+                                            <!-- <span class="text-dark text-uppercase small">Mehr sehen</span> -->
                                         @else
                                             <span class="text-dark text-uppercase small">виж повече</span>
                                         @endif
