@@ -51,8 +51,11 @@
                                     {!! wp_get_attachment_image($category_image_id, 'thumbnail', '', ['class' => 'w-100 h-auto']) !!}
                                     <span class="product_title position-absolute w-100 text-center">
                                         <span class="d-block text-uppercase small">{{ $group['label'] }}</span>
-                                        @if( $host[0] == 'de' ) 
-                                        @else 
+                                        @if( $host[0] == 'en' )
+                                            <span class="text-dark text-uppercase small">See more</span>
+                                        @elseif( $host[0] == 'de' )
+                                            <span class="text-dark text-uppercase small">Mehr sehen</span>
+                                        @else
                                             <span class="text-dark text-uppercase small">виж повече</span>
                                         @endif
                                     </span>
