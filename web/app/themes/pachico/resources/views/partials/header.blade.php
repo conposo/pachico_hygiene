@@ -37,6 +37,9 @@
       @endif
     </nav>
     <div class="d-flex justify-content-end align-items-center">
+      @if (has_nav_menu('language_switcher'))
+        {!! wp_nav_menu(['theme_location' => 'language_switcher', 'container_class' => 'menu-languages-container d-none d-md-block', 'menu_class' => 'nav d-flex']) !!}
+      @endif
       @if (has_nav_menu('side_navigation'))
         {!! wp_nav_menu(['theme_location' => 'side_navigation', 'menu_class' => 'nav d-flex justify-content-end']) !!}
       @endif
@@ -61,10 +64,12 @@ $(document).ready(function() {
       $('#open_nav_primary').removeClass('opened')
       $('#open_nav_primary').find('i').removeClass('fa-times').addClass('fa-bars')
       $('#nav_primary').removeClass('d-flex').addClass('d-none')
+      $('.menu-languages-container').removeClass('d-block').addClass('d-none')
     } else {
       $('#open_nav_primary').addClass('opened')
       $('#open_nav_primary').find('i').removeClass('fa-bars').addClass('fa-times')
       $('#nav_primary').removeClass('d-none').addClass('d-flex')
+      $('.menu-languages-container').removeClass('d-none').addClass('d-block')
     }
   })
 

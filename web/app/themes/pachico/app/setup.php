@@ -51,6 +51,7 @@ add_action('after_setup_theme', function () {
         'products_categories_navigation' => __('Products Categories Navigation', 'sage'),
         'contacts_navigation' => __('Contacts Navigation', 'sage'),
         'social_links' => __('Social Links', 'sage'),
+        'language_switcher' => __('Language Switcher', 'sage'),
     ]);
 
     /**

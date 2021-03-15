@@ -46,6 +46,49 @@ header.banner {
       opacity: 0;
     }
   }
+  
+  .menu-languages-container {
+    @include media-breakpoint-down(md) {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      font-size: 12px;
+    }
+
+    ul#menu-languages {
+      justify-content: space-around;
+
+      @include media-breakpoint-up(md) {
+        justify-content: end;
+        height: 40px;
+        overflow: hidden;
+      }
+  
+      &:hover {
+        overflow: unset;
+        li {
+          &:not(:first-child) {
+            opacity: 1;
+          }
+        }
+      }
+      
+      li {
+        transition: box-shadow 0.450s ease-in-out, opacity 0.550s ease;
+        background-color: #006daf;
+        @include media-breakpoint-up(md) {
+          &:not(:first-child) {
+            box-shadow: 0px 3px 5px #0000005e;
+            opacity: 0;
+          }
+          width: 100%;
+          text-align: right;
+        }
+      }
+    }
+  }
+
 
   a {
     color: #fff !important;
@@ -75,7 +118,7 @@ header.banner {
       //   }
       // }
       img {
-display: none;
+        display: none;
       }
     }
   }

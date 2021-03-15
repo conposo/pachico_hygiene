@@ -36,25 +36,11 @@ body.archive {
         }
       }
     }
+
     .card-category {
       width: 360px;
       height: 360px;
       box-shadow: 0 3px 99px rgba(0, 0, 0, .25);
-
-      &.disabled {
-        a:hover {
-          span.cat_name {
-            opacity: 0;
-          }
-          span.show_in_hover {
-            opacity: 1;
-            padding-left: 10%;
-            i {
-              opacity: 1;
-            }
-          }
-        }
-      }
 
       &:before,
       &:after {
@@ -71,7 +57,6 @@ body.archive {
         background: radial-gradient(ellipse at center,  rgba(0,0,0,0.15) 0%,rgba(0,0,0,0.1) 50%,rgba(0,0,0,0.15) 100%);
         filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#26000000', endColorstr='#26000000',GradientType=1 );
       }
-
       &:after {
         z-index: 0;
         opacity: .25;
@@ -83,8 +68,23 @@ body.archive {
         background: -webkit-radial-gradient(center, ellipse farthest-corner,  rgba(255,255,255,1) 0%,rgba(255,255,255,0) 100%);
         background: radial-gradient(ellipse at center,  rgba(255,255,255,1) 0%,rgba(255,255,255,0) 100%);
         filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#00ffffff',GradientType=1 );
-
       }
+
+      &.disabled {
+        a:hover {
+          span.cat_name {
+            opacity: 0;
+          }
+          span.show_in_hover {
+            opacity: 1;
+            padding-left: 10%;
+            i {
+              opacity: 1;
+            }
+          }
+        }
+      }
+
 
       a {
         z-index: 1;
@@ -118,6 +118,7 @@ body.archive {
 
       &:not(.disabled) {
         a {
+          // padding-bottom: 0;
           &:hover {
             @extend .pb-5;
 
@@ -129,10 +130,10 @@ body.archive {
       }
 
       .arrow-go {
+        transition: opacity .250s ease-in-out;
         opacity: 0;
         bottom: 10px;
         left: 20px;
-        transition: all .250s ease-in-out;
       }
     }
 

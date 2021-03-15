@@ -1,5 +1,9 @@
 
-@if( $host[0] == 'de' )
+
+@if( $host[0] == 'en' )
+	$text_terms = 'Terms & Conditions';
+	$text_privacy = 'Privacy Policy';
+@elseif( $host[0] == 'de' )
 	@php
 	$text_terms = 'Nutzungsbedingungen';
 	$text_privacy = 'Vertraulichkeit';
@@ -66,7 +70,7 @@
   <div class="container">
     <div class="d-flex flex-column flex-sm-row justify-content-between py-1 small border-top">
       <div class="d-flex flex-column flex-sm-row mb-2 mb-sm-0">
-        <p class="m-sm-0">Copyright © 2020 PaChico Inc. All rights reserved.</p>
+        <p class="m-sm-0">Copyright © {{date("Y")}} PaChico Inc. All rights reserved.</p>
         <div>
           <span class="d-none d-sm-inline">|</span>
           <!-- <a class="mr-1" href="#">Terms & Conditions</a> -->
