@@ -1,8 +1,10 @@
 
 
 @if( $host[0] == 'en' )
+	@php
 	$text_terms = 'Terms & Conditions';
 	$text_privacy = 'Privacy Policy';
+	@endphp
 @elseif( $host[0] == 'de' )
 	@php
 	$text_terms = 'Nutzungsbedingungen';
