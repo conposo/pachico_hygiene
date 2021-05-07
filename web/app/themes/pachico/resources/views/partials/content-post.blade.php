@@ -6,7 +6,7 @@
           <span class="small text-uppercase bg-white pl-1 position-absolute" style="top: 0;right: 0;">{!! the_post_thumbnail_caption() !!}</span>
         </caption>
       </figure>
-      <div class="position-absolute w-100 py-5 px-3 border-top" style="bottom: 0; background: rgb(255,255,255);
+      <div class="position-absolute w-100 py-1 px-2 py-sm-5 px-sm-3 border-top" style="bottom: 0; background: rgb(255,255,255);
         background: linear-gradient(0deg, rgba(255,255,255,1) 0%, rgba(255,255,255,0.22032563025210083) 100%);">
           <h1 class="entry-title">{!! get_the_title() !!}</h1>
       </div>
